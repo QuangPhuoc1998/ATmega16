@@ -1,0 +1,10 @@
+D:\DATA\AVR\ATmega16\HC_05\proteus_HC05\Visual_Studio_HC_05\Visual_Studio_HC_05\bin\Debug\Visual_Studio_HC_05.exe.config
+D:\DATA\AVR\ATmega16\HC_05\Visual_Studio_HC_05\Visual_Studio_HC_05\bin\Debug\Visual_Studio_HC_05.exe.config
+D:\DATA\AVR\ATmega16\HC_05\Visual_Studio_HC_05\Visual_Studio_HC_05\bin\Debug\Visual_Studio_HC_05.exe
+D:\DATA\AVR\ATmega16\HC_05\Visual_Studio_HC_05\Visual_Studio_HC_05\bin\Debug\Visual_Studio_HC_05.pdb
+D:\DATA\AVR\ATmega16\HC_05\Visual_Studio_HC_05\Visual_Studio_HC_05\obj\Debug\Visual_Studio_HC_05.Form1.resources
+D:\DATA\AVR\ATmega16\HC_05\Visual_Studio_HC_05\Visual_Studio_HC_05\obj\Debug\Visual_Studio_HC_05.Properties.Resources.resources
+D:\DATA\AVR\ATmega16\HC_05\Visual_Studio_HC_05\Visual_Studio_HC_05\obj\Debug\Visual_Studio_HC_05.csproj.GenerateResource.Cache
+D:\DATA\AVR\ATmega16\HC_05\Visual_Studio_HC_05\Visual_Studio_HC_05\obj\Debug\Visual_Studio_HC_05.exe
+D:\DATA\AVR\ATmega16\HC_05\Visual_Studio_HC_05\Visual_Studio_HC_05\obj\Debug\Visual_Studio_HC_05.pdb
+D:\DATA\AVR\ATmega16\HC_05\Visual_Studio_HC_05\Visual_Studio_HC_05\obj\Debug\Visual_Studio_HC_05.csprojAssemblyReference.cache

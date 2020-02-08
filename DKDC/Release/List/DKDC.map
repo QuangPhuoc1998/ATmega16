@@ -1,0 +1,28 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+main                                                                              0x00068    154
+ADC_Init                                                                          0x00102      5
+Read_ADC                                                                          0x00107     13
+PWM_Init                                                                          0x00114      8
+PWM_Duty                                                                          0x0011C     13
+Capture_Init                                                                      0x00129     14
+tim1_capt_isr                                                                     0x00137     11
+Lcd_Port                                                                          0x00142     26
+Lcd_Cmd                                                                           0x0015C     12
+Lcd_Set_Cursor                                                                    0x00168     31
+Lcd_Init                                                                          0x00187     23
+Lcd_Write_Char                                                                    0x0019E     20
+Lcd_Write_String                                                                  0x001B2     28

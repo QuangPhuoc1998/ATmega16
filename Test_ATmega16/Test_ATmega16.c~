@@ -1,0 +1,29 @@
+/*
+ * Test_ATmega16.c
+ *
+ * Created: 19/04/2019 19:27:32
+ * Author: ADMIN
+ */
+
+#include <mega16.h>
+#include <delay.h>
+#include <lcd.h>
+
+void main(void)
+{
+DDRA = 0xFF;
+DDRB = 0xFF;
+DDRC = 0xFF;
+DDRD = 0xFF;
+long int i;
+#asm
+.equ __lcd_port = 0x15;
+#endasm
+while (1)
+    {
+    PORTA = PORTB = PORTC = PORTD = 0xAA;
+    delay_ms(500);
+    PORTA = PORTB = PORTC = PORTD = 0x55;
+    delay_ms(500); 
+    }
+}

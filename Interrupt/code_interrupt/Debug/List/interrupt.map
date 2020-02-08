@@ -1,0 +1,20 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+main                                                                              0x00045      7
+Interrupt_Init                                                                    0x0004C     10
+ext_int0_isr                                                                      0x00056      6
+ext_int1_isr                                                                      0x0005C      6
+ext_int2_isr                                                                      0x00062      6

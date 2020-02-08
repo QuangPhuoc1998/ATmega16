@@ -1,0 +1,10 @@
+VERSION:3 SOURCE_TIMESTAMP:4E965828
+NODE:I LEVEL:0 LINE:8 "E:\AVR\ATmega16\DKDC\main.h"
+NODE:I LEVEL:0 LINE:9 "E:\AVR\ATmega16\DKDC\lcd4.h"
+NODE:F LEVEL:0 LINE:16 "main(void)"
+NODE:F LEVEL:0 LINE:74 "ADC_Init(void)"
+NODE:F LEVEL:0 LINE:81 "Read_ADC(unsigned char channel)"
+NODE:F LEVEL:0 LINE:90 "PWM_Init(void)"
+NODE:F LEVEL:0 LINE:98 "PWM_Duty(unsigned char duty)"
+NODE:F LEVEL:0 LINE:103 "Capture_Init(void)"
+NODE:F LEVEL:0 LINE:112 "tim1_capt_isr(void)"

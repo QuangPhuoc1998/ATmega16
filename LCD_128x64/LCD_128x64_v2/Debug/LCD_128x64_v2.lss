@@ -1,0 +1,1119 @@
+
+LCD_128x64_v2.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00001834  00000000  00000000  00000054  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  00001888  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .comment      00000030  00000000  00000000  00001888  2**0
+                  CONTENTS, READONLY
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000018b8  2**2
+                  CONTENTS, READONLY
+  4 .debug_aranges 000000c8  00000000  00000000  000018f4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   000035c5  00000000  00000000  000019bc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 00000789  00000000  00000000  00004f81  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000b4c  00000000  00000000  0000570a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  000002c0  00000000  00000000  00006258  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000004d1  00000000  00000000  00006518  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    0000195e  00000000  00000000  000069e9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 000000b8  00000000  00000000  00008347  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+       0:	0c 94 2a 0a 	jmp	0x1454	; 0x1454 <__ctors_end>
+       4:	0c 94 34 0a 	jmp	0x1468	; 0x1468 <__bad_interrupt>
+       8:	0c 94 34 0a 	jmp	0x1468	; 0x1468 <__bad_interrupt>
+       c:	0c 94 34 0a 	jmp	0x1468	; 0x1468 <__bad_interrupt>
+      10:	0c 94 34 0a 	jmp	0x1468	; 0x1468 <__bad_interrupt>
+      14:	0c 94 34 0a 	jmp	0x1468	; 0x1468 <__bad_interrupt>
+      18:	0c 94 34 0a 	jmp	0x1468	; 0x1468 <__bad_interrupt>
+      1c:	0c 94 34 0a 	jmp	0x1468	; 0x1468 <__bad_interrupt>
+      20:	0c 94 34 0a 	jmp	0x1468	; 0x1468 <__bad_interrupt>
+      24:	0c 94 34 0a 	jmp	0x1468	; 0x1468 <__bad_interrupt>
+      28:	0c 94 34 0a 	jmp	0x1468	; 0x1468 <__bad_interrupt>
+      2c:	0c 94 34 0a 	jmp	0x1468	; 0x1468 <__bad_interrupt>
+      30:	0c 94 34 0a 	jmp	0x1468	; 0x1468 <__bad_interrupt>
+      34:	0c 94 34 0a 	jmp	0x1468	; 0x1468 <__bad_interrupt>
+      38:	0c 94 34 0a 	jmp	0x1468	; 0x1468 <__bad_interrupt>
+      3c:	0c 94 34 0a 	jmp	0x1468	; 0x1468 <__bad_interrupt>
+      40:	0c 94 34 0a 	jmp	0x1468	; 0x1468 <__bad_interrupt>
+      44:	0c 94 34 0a 	jmp	0x1468	; 0x1468 <__bad_interrupt>
+      48:	0c 94 34 0a 	jmp	0x1468	; 0x1468 <__bad_interrupt>
+      4c:	0c 94 34 0a 	jmp	0x1468	; 0x1468 <__bad_interrupt>
+      50:	0c 94 34 0a 	jmp	0x1468	; 0x1468 <__bad_interrupt>
+
+00000054 <__trampolines_end>:
+	...
+      a4:	00 c0       	rjmp	.+0      	; 0xa6 <__trampolines_end+0x52>
+      a6:	c0 c0       	rjmp	.+384    	; 0x228 <__trampolines_end+0x1d4>
+      a8:	c0 c0       	rjmp	.+384    	; 0x22a <__trampolines_end+0x1d6>
+      aa:	c0 c0       	rjmp	.+384    	; 0x22c <__trampolines_end+0x1d8>
+      ac:	c0 c0       	rjmp	.+384    	; 0x22e <__trampolines_end+0x1da>
+      ae:	c0 e0       	ldi	r28, 0x00	; 0
+      b0:	e0 60       	ori	r30, 0x00	; 0
+      b2:	60 20       	and	r6, r0
+	...
+      ec:	00 80       	ld	r0, Z
+      ee:	80 c0       	rjmp	.+256    	; 0x1f0 <__trampolines_end+0x19c>
+      f0:	c0 e0       	ldi	r28, 0x00	; 0
+      f2:	e0 e0       	ldi	r30, 0x00	; 0
+      f4:	f0 f0       	brcs	.+60     	; 0x132 <__trampolines_end+0xde>
+      f6:	f0 f0       	brcs	.+60     	; 0x134 <__trampolines_end+0xe0>
+      f8:	f8 f8       	.word	0xf8f8	; ????
+      fa:	f8 f8       	.word	0xf8f8	; ????
+      fc:	f8 f8       	.word	0xf8f8	; ????
+      fe:	f8 f8       	.word	0xf8f8	; ????
+     100:	f8 f8       	.word	0xf8f8	; ????
+     102:	f8 f8       	.word	0xf8f8	; ????
+     104:	f8 f8       	.word	0xf8f8	; ????
+     106:	f8 f8       	.word	0xf8f8	; ????
+     108:	f8 f8       	.word	0xf8f8	; ????
+     10a:	f8 f8       	.word	0xf8f8	; ????
+     10c:	f8 f8       	.word	0xf8f8	; ????
+     10e:	f8 f8       	.word	0xf8f8	; ????
+     110:	f8 f8       	.word	0xf8f8	; ????
+     112:	f8 f8       	.word	0xf8f8	; ????
+     114:	f8 f8       	.word	0xf8f8	; ????
+     116:	f8 f8       	.word	0xf8f8	; ????
+     118:	f8 f8       	.word	0xf8f8	; ????
+     11a:	f8 f8       	.word	0xf8f8	; ????
+     11c:	f8 f8       	.word	0xf8f8	; ????
+     11e:	f8 f8       	.word	0xf8f8	; ????
+     120:	f8 f8       	.word	0xf8f8	; ????
+     122:	fc fc       	.word	0xfcfc	; ????
+     124:	fc ff       	.word	0xfffc	; ????
+     126:	ff ff       	.word	0xffff	; ????
+     128:	ff ff       	.word	0xffff	; ????
+     12a:	ff ff       	.word	0xffff	; ????
+     12c:	ff ff       	.word	0xffff	; ????
+     12e:	ff ff       	.word	0xffff	; ????
+     130:	df df       	rcall	.-66     	; 0xf0 <__trampolines_end+0x9c>
+     132:	9f 9f       	mul	r25, r31
+     134:	1b 19       	sub	r17, r11
+     136:	09 00       	.word	0x0009	; ????
+	...
+     15c:	00 80       	ld	r0, Z
+     15e:	80 80       	ld	r8, Z
+     160:	80 80       	ld	r8, Z
+     162:	80 80       	ld	r8, Z
+     164:	80 80       	ld	r8, Z
+     166:	80 80       	ld	r8, Z
+     168:	e0 f8       	bld	r14, 0
+     16a:	fc fe       	.word	0xfefc	; ????
+     16c:	ff ff       	.word	0xffff	; ????
+     16e:	ff ff       	.word	0xffff	; ????
+     170:	ff ff       	.word	0xffff	; ????
+     172:	ff ff       	.word	0xffff	; ????
+     174:	ff ff       	.word	0xffff	; ????
+     176:	ff ff       	.word	0xffff	; ????
+     178:	ff ff       	.word	0xffff	; ????
+     17a:	ff 7f       	andi	r31, 0xFF	; 255
+     17c:	ff ff       	.word	0xffff	; ????
+     17e:	ff ef       	ldi	r31, 0xFF	; 255
+     180:	ef ff       	.word	0xffef	; ????
+     182:	ff ff       	.word	0xffff	; ????
+     184:	ff ff       	.word	0xffff	; ????
+     186:	ff ff       	.word	0xffff	; ????
+     188:	ff ff       	.word	0xffff	; ????
+     18a:	ff ff       	.word	0xffff	; ????
+     18c:	bf 9f       	mul	r27, r31
+     18e:	3f 3f       	cpi	r19, 0xFF	; 255
+     190:	7f bf       	out	0x3f, r23	; 63
+     192:	9f 1f       	adc	r25, r31
+     194:	3f 7f       	andi	r19, 0xFF	; 255
+     196:	7f bf       	out	0x3f, r23	; 63
+     198:	9f 9e       	mul	r9, r31
+     19a:	9f 3f       	cpi	r25, 0xFF	; 255
+     19c:	7f 3f       	cpi	r23, 0xFF	; 255
+     19e:	1f cf       	rjmp	.-450    	; 0xffffffde <__eeprom_end+0xff7effde>
+     1a0:	cf df       	rcall	.-98     	; 0x140 <__trampolines_end+0xec>
+     1a2:	9f 3f       	cpi	r25, 0xFF	; 255
+     1a4:	7f 7f       	andi	r23, 0xFF	; 255
+     1a6:	3f cf       	rjmp	.-386    	; 0x26 <__FUSE_REGION_LENGTH__+0x24>
+     1a8:	c7 c7       	rjmp	.+3982   	; 0x1138 <anime+0xe4>
+     1aa:	c7 8f       	std	Z+31, r28	; 0x1f
+     1ac:	0f 8f       	std	Y+31, r16	; 0x1f
+     1ae:	ed c9       	rjmp	.-3110   	; 0xfffff58a <__eeprom_end+0xff7ef58a>
+     1b0:	c1 81       	ldd	r28, Z+1	; 0x01
+     1b2:	81 01       	movw	r16, r2
+     1b4:	00 80       	ld	r0, Z
+     1b6:	c0 e0       	ldi	r28, 0x00	; 0
+     1b8:	f0 f0       	brcs	.+60     	; 0x1f6 <__trampolines_end+0x1a2>
+     1ba:	e0 80       	ld	r14, Z
+	...
+     1d8:	80 fc       	sbrc	r8, 0
+     1da:	ff ff       	.word	0xffff	; ????
+     1dc:	ff ff       	.word	0xffff	; ????
+     1de:	ff ff       	.word	0xffff	; ????
+     1e0:	ff ff       	.word	0xffff	; ????
+     1e2:	ff ff       	.word	0xffff	; ????
+     1e4:	ff ff       	.word	0xffff	; ????
+     1e6:	ff ff       	.word	0xffff	; ????
+     1e8:	ff ff       	.word	0xffff	; ????
+     1ea:	ff ff       	.word	0xffff	; ????
+     1ec:	ff ff       	.word	0xffff	; ????
+     1ee:	ff ff       	.word	0xffff	; ????
+     1f0:	ff ff       	.word	0xffff	; ????
+     1f2:	ff ff       	.word	0xffff	; ????
+     1f4:	ff ff       	.word	0xffff	; ????
+     1f6:	ff ff       	.word	0xffff	; ????
+     1f8:	ff ff       	.word	0xffff	; ????
+     1fa:	ff ff       	.word	0xffff	; ????
+     1fc:	f7 f7       	brid	.-4      	; 0x1fa <__trampolines_end+0x1a6>
+     1fe:	ff ff       	.word	0xffff	; ????
+     200:	ff ff       	.word	0xffff	; ????
+     202:	ff ff       	.word	0xffff	; ????
+     204:	ff ff       	.word	0xffff	; ????
+     206:	ff ff       	.word	0xffff	; ????
+     208:	ff ff       	.word	0xffff	; ????
+     20a:	ff ff       	.word	0xffff	; ????
+     20c:	ff ff       	.word	0xffff	; ????
+     20e:	ff fe       	.word	0xfeff	; ????
+     210:	ff ff       	.word	0xffff	; ????
+     212:	ff ff       	.word	0xffff	; ????
+     214:	ff de       	rcall	.-514    	; 0x14 <__FUSE_REGION_LENGTH__+0x12>
+     216:	df ff       	.word	0xffdf	; ????
+     218:	ff ff       	.word	0xffff	; ????
+     21a:	ff ff       	.word	0xffff	; ????
+     21c:	fe fe       	.word	0xfefe	; ????
+     21e:	ff ff       	.word	0xffff	; ????
+     220:	ff ff       	.word	0xffff	; ????
+     222:	ff 7f       	andi	r31, 0xFF	; 255
+     224:	7f fe       	.word	0xfe7f	; ????
+     226:	ff ff       	.word	0xffff	; ????
+     228:	ff ff       	.word	0xffff	; ????
+     22a:	ff ff       	.word	0xffff	; ????
+     22c:	ff ff       	.word	0xffff	; ????
+     22e:	ff ff       	.word	0xffff	; ????
+     230:	ff ff       	.word	0xffff	; ????
+     232:	ff ff       	.word	0xffff	; ????
+     234:	ff ff       	.word	0xffff	; ????
+     236:	ff ff       	.word	0xffff	; ????
+     238:	ff ff       	.word	0xffff	; ????
+     23a:	ff ff       	.word	0xffff	; ????
+     23c:	fe fc       	.word	0xfcfe	; ????
+     23e:	fc fc       	.word	0xfcfc	; ????
+     240:	fe fe       	.word	0xfefe	; ????
+     242:	fe fa       	.word	0xfafe	; ????
+     244:	de cf       	rjmp	.-68     	; 0x202 <__trampolines_end+0x1ae>
+     246:	c3 c0       	rjmp	.+390    	; 0x3ce <__trampolines_end+0x37a>
+     248:	c0 c0       	rjmp	.+384    	; 0x3ca <__trampolines_end+0x376>
+     24a:	c0 c0       	rjmp	.+384    	; 0x3cc <__trampolines_end+0x378>
+     24c:	c0 40       	sbci	r28, 0x00	; 0
+	...
+     256:	00 00       	nop
+     258:	01 0f       	add	r16, r17
+     25a:	1f 7f       	andi	r17, 0xFF	; 255
+     25c:	7f 7f       	andi	r23, 0xFF	; 255
+     25e:	7f 7f       	andi	r23, 0xFF	; 255
+     260:	7f 7f       	andi	r23, 0xFF	; 255
+     262:	7f 7f       	andi	r23, 0xFF	; 255
+     264:	3f 1f       	adc	r19, r31
+     266:	01 01       	movw	r0, r2
+     268:	03 0f       	add	r16, r19
+     26a:	1d 33       	cpi	r17, 0x3D	; 61
+     26c:	33 63       	ori	r19, 0x33	; 51
+     26e:	ff c7       	rjmp	.+4094   	; 0x126e <anime+0x21a>
+     270:	8f 8f       	std	Y+31, r24	; 0x1f
+     272:	0f 0f       	add	r16, r31
+     274:	0f ff       	.word	0xff0f	; ????
+     276:	9f 1f       	adc	r25, r31
+     278:	1f 1f       	adc	r17, r31
+     27a:	1f 1f       	adc	r17, r31
+     27c:	7f ff       	.word	0xff7f	; ????
+     27e:	1f 3f       	cpi	r17, 0xFF	; 255
+     280:	3f 3f       	cpi	r19, 0xFF	; 255
+     282:	3f 7f       	andi	r19, 0xFF	; 255
+     284:	ff bf       	out	0x3f, r31	; 63
+     286:	ff ff       	.word	0xffff	; ????
+     288:	ff ff       	.word	0xffff	; ????
+     28a:	ff ff       	.word	0xffff	; ????
+     28c:	ff ff       	.word	0xffff	; ????
+     28e:	ff ff       	.word	0xffff	; ????
+     290:	ff ff       	.word	0xffff	; ????
+     292:	ff ff       	.word	0xffff	; ????
+     294:	ff ff       	.word	0xffff	; ????
+     296:	ff ff       	.word	0xffff	; ????
+     298:	ff ff       	.word	0xffff	; ????
+     29a:	ff ff       	.word	0xffff	; ????
+     29c:	ff df       	rcall	.-2      	; 0x29c <__trampolines_end+0x248>
+     29e:	df 9f       	mul	r29, r31
+     2a0:	9f 0f       	add	r25, r31
+     2a2:	0f 0f       	add	r16, r31
+     2a4:	0f 07       	cpc	r16, r31
+     2a6:	c7 df       	rcall	.-114    	; 0x236 <__trampolines_end+0x1e2>
+     2a8:	7f ff       	.word	0xff7f	; ????
+     2aa:	ff ff       	.word	0xffff	; ????
+     2ac:	ff ff       	.word	0xffff	; ????
+     2ae:	ff ff       	.word	0xffff	; ????
+     2b0:	ff ff       	.word	0xffff	; ????
+     2b2:	ff ff       	.word	0xffff	; ????
+     2b4:	ff ff       	.word	0xffff	; ????
+     2b6:	ff ff       	.word	0xffff	; ????
+     2b8:	fb fd       	.word	0xfdfb	; ????
+     2ba:	fd fd       	.word	0xfdfd	; ????
+     2bc:	f1 f9       	bld	r31, 1
+     2be:	7b 7f       	andi	r23, 0xFB	; 251
+     2c0:	7f 7f       	andi	r23, 0xFF	; 255
+     2c2:	ff ff       	.word	0xffff	; ????
+     2c4:	ff ff       	.word	0xffff	; ????
+     2c6:	ff ff       	.word	0xffff	; ????
+     2c8:	ff fb       	.word	0xfbff	; ????
+     2ca:	f9 f1       	breq	.+126    	; 0x34a <__trampolines_end+0x2f6>
+     2cc:	50 70       	andi	r21, 0x00	; 0
+     2ce:	70 20       	and	r7, r0
+	...
+     2f0:	00 01       	movw	r0, r0
+     2f2:	01 01       	movw	r0, r2
+     2f4:	03 03       	mulsu	r16, r19
+     2f6:	03 02       	muls	r16, r19
+     2f8:	06 06       	cpc	r0, r22
+     2fa:	04 04       	cpc	r0, r4
+     2fc:	04 05       	cpc	r16, r4
+     2fe:	07 06       	cpc	r0, r23
+     300:	04 04       	cpc	r0, r4
+     302:	04 0e       	add	r0, r20
+     304:	1f 3f       	cpi	r17, 0xFF	; 255
+     306:	3f 3f       	cpi	r19, 0xFF	; 255
+     308:	3f 3f       	cpi	r19, 0xFF	; 255
+     30a:	3f 3f       	cpi	r19, 0xFF	; 255
+     30c:	3f 3f       	cpi	r19, 0xFF	; 255
+     30e:	3f 3f       	cpi	r19, 0xFF	; 255
+     310:	3f 1f       	adc	r19, r31
+     312:	1f 0f       	add	r17, r31
+     314:	07 0f       	add	r16, r23
+     316:	1f 3f       	cpi	r17, 0xFF	; 255
+     318:	7f 7f       	andi	r23, 0xFF	; 255
+     31a:	7f 7f       	andi	r23, 0xFF	; 255
+     31c:	7f 7f       	andi	r23, 0xFF	; 255
+     31e:	7f 7f       	andi	r23, 0xFF	; 255
+     320:	3f 3f       	cpi	r19, 0xFF	; 255
+     322:	3e 1c       	adc	r3, r14
+     324:	00 00       	nop
+     326:	00 03       	mulsu	r16, r16
+     328:	03 03       	mulsu	r16, r19
+     32a:	03 07       	cpc	r16, r19
+     32c:	3f 7f       	andi	r19, 0xFF	; 255
+     32e:	ff ff       	.word	0xffff	; ????
+     330:	ff 7f       	andi	r31, 0xFF	; 255
+     332:	ff ff       	.word	0xffff	; ????
+     334:	ff ff       	.word	0xffff	; ????
+     336:	ff ff       	.word	0xffff	; ????
+     338:	ff ff       	.word	0xffff	; ????
+     33a:	ff ff       	.word	0xffff	; ????
+     33c:	fe fe       	.word	0xfefe	; ????
+     33e:	fe fe       	.word	0xfefe	; ????
+     340:	7e 7c       	andi	r23, 0xCE	; 206
+     342:	7e 3f       	cpi	r23, 0xFE	; 254
+     344:	1f 1f       	adc	r17, r31
+     346:	07 01       	movw	r0, r14
+     348:	01 00       	.word	0x0001	; ????
+	...
+
+00000454 <anime_v5>:
+	...
+     4e4:	80 e0 e0 f0 f0 f0 f8 f8 f8 f8 f8 f8 f8 fc fc fc     ................
+     4f4:	fc f8 f8 f8 f8 f8 f8 f8 78 78 f8 f8 f8 f8 f8 f8     ........xx......
+     504:	f0 f0 f0 f0 f0 f0 f0 f0 e0 e0 e0 e0 e0 e0 e0 e0     ................
+     514:	e0 e0 e0 e0 e0 e0 e0 e0 e0 e0 e0 c0 c0 c0 c0 c0     ................
+     524:	c0 c0 80 80 80 80 00 00 00 00 00 00 00 00 00 00     ................
+     534:	00 80 80 c0 c0 40 40 60 20 20 20 20 20 20 20 20     .....@@`        
+     544:	20 60 60 c0 80 00 00 00 00 00 00 00 00 00 00 00      ``.............
+	...
+     560:	00 00 e0 fb ff ff ff 7f 3f 1f ff 0f 0f 1f 1f 1f     ........?.......
+     570:	1f 3f 3f 3f 7f 7f ff ff ff ff ff ff fc f8 f1 e3     .???............
+     580:	c3 c7 8f df 7f 3f 3f 7f ff ff ff ff ff ff ff ff     .....??.........
+     590:	ff ff 7f 1f 0f 0f 0f 0b 0f 0f cf e7 e7 ff ff ff     ................
+     5a0:	ff ff ff ff ff ff ff ff ff ff fd ff ff fe fe fe     ................
+     5b0:	fc fe fa f3 c1 81 00 00 00 00 00 00 00 80 80 80     ................
+     5c0:	80 80 80 c0 40 40 60 30 1f 06 00 00 00 00 00 00     ....@@`0........
+	...
+     5d8:	e0 e0 f0 b0 90 90 98 98 88 88 8f 8f 8f 8f 87 84     ................
+     5e8:	84 f4 1f 00 00 00 00 00 00 00 00 00 00 00 00 00     ................
+     5f8:	00 00 01 01 01 01 01 03 07 03 03 02 72 d2 b2 fe     ............r...
+     608:	fe fe c3 63 27 7f ff 3f 3f 03 00 00 40 c0 e0 c0     ...c'..??...@...
+     618:	c0 00 03 03 03 03 03 ff ff ff fd ff ff ff ff ff     ................
+     628:	ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff 01     ................
+     638:	01 81 81 81 81 81 81 81 80 80 80 80 80 80 80 00     ................
+	...
+     658:	0c 3d 7d 75 45 45 44 44 44 c4 c7 87 87 87 84 e4     .=}uEEDDD.......
+     668:	07 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00     ................
+     678:	00 00 00 00 00 00 00 80 80 80 80 80 80 9e d2 5f     ..............._
+     688:	5e 7f 7b 62 c6 c7 ff fe fe fc e0 80 00 00 00 00     ^.{b............
+     698:	00 00 00 30 f8 f8 f8 fb ff ff ff ff ff ff ff ff     ...0............
+     6a8:	ff ff ff ff ff ff ff ff ff ff ff ff ff ff 9f 01     ................
+     6b8:	01 01 01 01 00 00 00 00 00 00 00 00 00 01 01 01     ................
+     6c8:	01 03 86 fc 00 00 00 00 00 00 00 00 00 00 00 00     ................
+	...
+     6e0:	00 00 07 0f 1f 1f 3f 3f 3e 7e 7e 7c 7c 7c 7c 7c     ......??>~~|||||
+     6f0:	fc fc f8 f8 f8 fc fc fc fc fe fe ff ff ff ff ff     ................
+     700:	ff 7f 7f ff fe 7c 7c 78 78 7c 7e 7f 7f 7f 7f 7f     .....||xx|~.....
+     710:	7f 7f 7f 7f 7f 7e 7e 7c 7c 7c 7c 7c 7c 7c 7c 7d     .....~~||||||||}
+     720:	7f 7f 7f 7f 7f 7f 7f 3f 3f 3f 3f 1f 1f 1b 0f 0f     .......????.....
+     730:	07 07 03 01 00 00 01 01 01 03 03 02 02 02 02 02     ................
+     740:	06 00 00 02 02 02 02 03 03 01 01 00 00 00 00 00     ................
+	...
+     77c:	00 06 07 0d 18 18 1e 03 00 00 00 00 00 00 00 00     ................
+	...
+     7a8:	00 00 00 03 07 0e 0c 18 18 10 30 20 20 00 00 e0     ..........0  ...
+     7b8:	e0 c0 80 80 80 c0 c0 c0 00 00 00 00 00 00 00 00     ................
+	...
+     838:	01 01 00 00 00 00 03 07 07 00 00 00 00 00 00 00     ................
+	...
+
+00000854 <cat>:
+	...
+     908:	00 00 00 80 c8 d8 70 70 60 64 3c 3c 78 70 10 10     ......pp`d<<xp..
+     918:	18 18 18 38 38 38 18 18 18 18 38 70 70 30 30 30     ...888....8pp000
+     928:	30 30 20 60 60 40 c0 c0 c0 c0 c0 c0 c0 c0 c0 c0     00 ``@..........
+     938:	c0 c0 c0 c0 80 80 80 80 80 00 00 00 00 00 00 00     ................
+	...
+     960:	00 00 00 80 c0 c0 60 20 30 30 10 10 10 18 18 18     ......` 00......
+     970:	08 08 08 18 38 38 78 78 38 18 18 38 70 f0 f0 70     ....88xx8..8p..p
+     980:	30 30 20 60 e0 e0 70 38 0e 06 03 01 01 00 00 00     00 `..p8........
+     990:	00 60 f0 f8 fc fc fc fe fe fe fe fe fe ee ec fc     .`..............
+     9a0:	fc fc f8 f0 00 00 00 00 30 20 00 00 00 00 00 00     ........0 ......
+     9b0:	00 01 03 03 07 07 0f 1d 19 31 61 c1 81 81 83 c3     .........1a.....
+     9c0:	c3 63 3f 9f c7 e6 76 1c 00 00 00 00 00 00 00 00     .c?...v.........
+	...
+     9e0:	e0 f0 bf 9f 91 98 98 18 18 18 08 00 00 00 00 00     ................
+	...
+     a04:	ff 07 00 00 00 00 00 00 00 00 00 00 00 00 01 c1     ................
+     a14:	e3 03 07 07 87 07 07 07 07 07 07 07 03 03 01 00     ................
+	...
+     a3c:	03 0f 3f fe c6 03 03 01 00 00 00 00 00 00 00 00     ..?.............
+	...
+     a60:	18 3f e7 e5 65 67 47 47 47 47 40 00 00 00 00 00     .?..egGGGG@.....
+	...
+     a84:	ff e0 00 00 00 00 00 00 00 00 00 00 00 00 00 0f     ................
+     a94:	8f 89 80 83 c3 c3 c0 c0 c0 80 80 80 80 00 00 00     ................
+	...
+     abc:	00 00 e0 ff 1f 00 00 00 00 00 00 00 00 00 00 00     ................
+	...
+     ae0:	00 00 03 07 0e 1c 18 10 30 20 60 e0 e0 c0 c0 40     ........0 `....@
+     af0:	c0 c0 c0 40 70 50 50 70 60 40 40 70 78 68 38 38     ...@pPPp`@@pxh88
+     b00:	30 30 30 10 18 1f 1e 78 e0 c0 80 00 00 00 00 00     000....x........
+     b10:	00 08 3e 7f 7f 7f ff ff ff ff ff ff fd fd fd ff     ..>.............
+     b20:	7f 7f 3f 1e 00 00 00 00 00 0c 00 00 00 00 00 00     ..?.............
+     b30:	00 00 00 00 80 80 c0 40 60 30 38 1c 0e 07 0f 0f     .......@`08.....
+     b40:	1b 32 36 ec dc b8 70 e0 c0 00 00 00 00 00 00 00     .26...p.........
+	...
+     b68:	00 00 00 01 03 07 07 0f 0f 1d 1f 13 12 32 36 26     .............26&
+     b78:	26 3e 26 26 22 3e 36 22 22 36 3e 1c 00 00 00 00     &>&&">6""6>.....
+     b88:	00 01 03 03 36 36 1c 1c 0e 1e 58 70 7c 3c 30 30     ....66....Xp|<00
+     b98:	30 20 20 20 20 20 20 20 20 20 20 30 30 30 10 10     0          000..
+     ba8:	10 18 18 08 0c 0c 04 0e 0e 0f 0b 0b 0b 0b 0e 0e     ................
+     bb8:	0e 0e 0e 0e 0e 06 06 06 07 07 07 03 03 03 01 01     ................
+	...
+
+00000c54 <panda>:
+	...
+     cdc:	00 00 00 80 80 80 80 80 80 80 80 80 80 80 80 80     ................
+     cec:	00 00 00 00 00 00 80 c0 c0 c0 c0 c0 c0 c0 c0 c0     ................
+     cfc:	c0 c0 80 80 00 00 00 00 00 00 00 00 00 00 00 00     ................
+     d0c:	00 80 80 c0 c0 60 60 20 30 30 10 10 18 18 08 08     .....`` 00......
+     d1c:	08 0c 0c 0c 04 04 04 04 04 04 84 84 84 84 84 04     ................
+     d2c:	04 0c 0c 0c 08 08 08 08 18 18 10 38 38 38 78 78     ...........888xx
+     d3c:	7c fc fc fc fc fc fc fc fc fc fc f8 f8 f8 f8 f8     |...............
+     d4c:	f0 f0 f0 e0 e0 c0 80 80 00 00 f0 f8 bc 1e 0e 0f     ................
+     d5c:	07 07 07 03 03 03 03 03 03 03 07 07 07 07 0f 1f     ................
+     d6c:	bf ff ff ff fe ff ff ff ff ff 7f 7f ff ff ff ff     ................
+     d7c:	ff ff ff ff ff ff ff fe fe 7c 3c 18 0c 06 06 03     .........|<.....
+     d8c:	01 01 00 00 00 00 00 00 00 70 f0 f8 f8 fc fc fc     .........p......
+     d9c:	fe fe fe fe ff ff ff ff ff ff ff ff ff ff ff ff     ................
+     dac:	ff ff ff ff fe fe fc fc f8 f0 e0 e0 80 00 00 00     ................
+     dbc:	00 00 00 01 01 03 07 07 0f 1f 3f 7f ff ff ff ff     ..........?.....
+     dcc:	ff ff ff ff ff ff 7f 3f 00 00 01 03 07 c7 fe fe     .......?........
+     ddc:	fc 3c 1c 1c 18 18 18 18 38 38 3c 3c 1c 1e 1e 1f     .<......88<<....
+     dec:	1f 1f 1f 0f 0f 0f 07 03 03 00 00 00 00 00 00 01     ................
+     dfc:	01 01 03 03 e3 ff 0f 03 00 00 00 00 00 00 00 00     ................
+     e0c:	00 00 00 00 e0 f0 30 30 10 00 81 c3 c3 e7 e7 c7     ......00........
+     e1c:	c7 8f 0f 0f 0f 0f 0f 0f 1f 1f 1f 1f 1f 1f 1f 1f     ................
+     e2c:	1f 1f 1f 1f 1f 1f 1f 1f 1f 1f 0f 0f 07 03 00 00     ................
+	...
+     e48:	00 03 0f ff f3 03 01 01 00 00 00 00 00 00 00 00     ................
+     e58:	00 8f bf ff ff f0 e0 e0 e0 e0 e0 e0 e0 e0 e0 e0     ................
+     e68:	e0 e0 e0 e0 e0 e0 c0 c0 c0 80 80 00 00 00 00 00     ................
+	...
+     e80:	0f 7f f0 c0 00 00 00 00 00 00 00 00 00 00 00 00     ................
+     e90:	0f 1f 19 11 11 01 03 87 cf cf cf ed e7 e3 e0 e0     ................
+     ea0:	e0 f0 f0 f0 f0 f0 f0 f0 f0 f0 f0 f0 f8 78 f8 f8     .............x..
+     eb0:	f0 f0 f0 f0 f0 f0 f0 e0 e0 c0 00 00 00 00 00 00     ................
+	...
+     ec8:	00 80 e0 ff 9f 00 00 00 00 00 00 00 00 00 7e ff     ..............~.
+     ed8:	e7 c3 83 81 01 01 00 00 00 00 00 00 00 00 00 01     ................
+     ee8:	01 81 83 c3 e7 ff ff ff ff ff ff ff ff fc f0 f8     ................
+     ef8:	f8 fc fc fe fe fe ff ff ff ff ff ff ff fe fc f8     ................
+     f08:	70 60 c0 c0 80 00 00 00 00 00 00 00 00 0e 1f 1f     p`..............
+     f18:	3f 3f 7f 7f 7f 7f ff ff ff ff ff ff ff ff ff ff     ??..............
+     f28:	ff ff ff ff ff ff ff ff ff 7f 7f 3f 3f 1f 0f 07     ...........??...
+     f38:	03 00 00 00 00 00 00 00 80 80 c0 e0 f0 f0 f8 fc     ................
+     f48:	ff ff ff ff ff ff ff ff fe fe fc f8 00 00 00 00     ................
+     f58:	00 01 01 03 03 03 03 07 07 07 07 07 07 07 07 07     ................
+     f68:	07 07 07 07 07 03 03 03 03 01 03 07 07 07 0f 0f     ................
+     f78:	0f 0f 07 07 07 07 07 03 03 03 01 01 01 00 00 00     ................
+     f88:	00 00 00 00 01 01 03 02 06 06 04 0c 0c 08 18 18     ................
+     f98:	10 10 30 30 30 20 20 20 20 21 61 61 61 61 61 61     ..000    !aaaaaa
+     fa8:	61 61 61 21 21 21 20 20 20 30 30 10 10 18 38 38     aaa!!!   00...88
+     fb8:	38 3c 7c 7c 7e 7e 7f 7f 7f 7f 7f 7f 7f 7f 7f 7f     8<||~~..........
+     fc8:	7f 3f 3f 3f 3f 1f 1f 1f 0f 07 07 03 00 00 00 00     .????...........
+	...
+
+00001054 <anime>:
+	...
+    1080:	00 10 30 60 c0 c0 80 80 80 00 00 00 00 00 00 00     ..0`............
+	...
+    10d4:	09 19 11 31 21 22 22 62 42 42 84 84 04 0c 88 88     ...1!""bBB......
+    10e4:	88 98 90 b0 f0 f0 f0 e0 60 60 60 60 60 60 60 60     ........````````
+    10f4:	60 40 c0 c0 c0 c0 e0 e0 e0 e0 e0 f0 f0 f0 f0 f8     `@..............
+    1104:	f8 f8 f8 f9 f9 f9 fb fb fb fa fa fa fa fe fe fe     ................
+    1114:	fe fe ee ee fe be be be be be be be be be bf bf     ................
+    1124:	be be be be fe fe fe fe fe fe fe fe fc fc fc fc     ................
+    1134:	fc fc fc fc f8 f8 f8 f8 f8 f8 f0 f0 f0 f0 e0 e0     ................
+    1144:	e0 e0 c0 c0 80 80 00 00 00 00 00 00 00 00 00 00     ................
+    1154:	60 20 20 00 20 40 40 40 80 80 80 00 00 00 00 00     `  . @@@........
+	...
+    1170:	00 80 80 00 00 80 c0 80 90 c8 dc 5a 5e 3c 36 37     ...........Z^<67
+    1180:	3f 17 1f 1f 1f 8f af df df ff ff df ff ff f7 ff     ?...............
+    1190:	ff 9f 9f df 5f ff ff ef ef bf ff ff ff ff ff ff     ...._...........
+    11a0:	ff fb 79 79 29 29 09 89 89 89 89 89 89 8d 9f 9f     ..yy))..........
+    11b0:	9f 9f 9f 9f ff ff ff ff ff ff ff ff ff ff ff ff     ................
+    11c0:	ff ff ff ff ff ff ff ff ff ff ff ff fe fe fc fc     ................
+    11d0:	f8 f0 e0 c0 02 02 02 06 04 04 04 0c 28 18 08 09     ............(...
+    11e0:	09 0b 0a 0a 0a 0a 0c 1c 14 14 1c 18 18 18 58 78     ..............Xx
+    11f0:	68 a8 f9 19 05 03 03 01 00 00 00 00 00 00 00 00     h...............
+    1200:	00 00 00 00 03 00 04 00 07 07 07 07 0f 0f 07 27     ...............'
+    1210:	23 a6 86 73 7b 1b 3a 2b 3f ff f7 ff ff ff ff ff     #..s{.:+?.......
+    1220:	ff ff c5 85 87 83 03 83 81 81 91 91 81 81 c9 d9     ................
+    1230:	ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff     ................
+    1240:	ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff     ................
+    1250:	ff ff ff ff 00 00 00 00 00 00 00 00 00 00 00 00     ................
+    1260:	00 00 00 01 01 00 00 00 00 00 00 00 00 00 00 00     ................
+    1270:	3e 23 60 c0 80 80 00 00 02 03 3e 30 00 00 00 00     >#`.......>0....
+	...
+    128c:	00 00 82 8a 8b fa f2 f2 f2 fb fb fb fb ff 7f 7f     ................
+    129c:	7f 7f 7f ff ff ff bf ff ff fb ff f9 f9 f9 f9 98     ................
+    12ac:	98 98 98 88 88 c8 c8 c8 ef ef ff ff ff ff ff ff     ................
+    12bc:	ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff ff     ................
+    12cc:	ff ff ff ff ff ff ff ff 00 00 00 00 00 00 00 00     ................
+    12dc:	00 00 00 00 00 00 00 80 80 00 00 80 80 40 40 40     .............@@@
+    12ec:	40 40 40 40 40 40 40 e0 f4 fd ff fe fe fc fc f8     @@@@@@@.........
+    12fc:	f8 f0 f0 f0 e0 e0 e0 e0 c0 c0 c0 c0 c0 c0 c0 c0     ................
+    130c:	40 c7 c9 c8 cb cf cf cf cf ef ef ef ff ff fe fe     @...............
+    131c:	ee fb ff ff ff ff ff ff ff ff ff ff ff ff ff ff     ................
+    132c:	ff f9 c8 c8 e8 ec ef ff ff ff ff ff ff ff ff ff     ................
+    133c:	ff ff ff ff ff ff ff ff ff ff ff ff 7f 7f 7f 3f     ...............?
+    134c:	1f 1f 0f 0f 07 07 03 00 80 80 c0 e0 60 20 30 10     ............` 0.
+    135c:	18 18 08 08 08 08 0c 0c 04 04 04 04 04 06 02 06     ................
+    136c:	06 06 06 86 e7 7f 5f 5f 7f 7f 7f 7f 3f 3f 3f 3f     ......__....????
+    137c:	3f 3f 3f 3f 3f 3f 3f 3f 3f 3f 3f 3f 3f 3f 3f 3d     ???????????????=
+    138c:	3d 3d 39 39 39 39 39 39 39 39 3b 3f 3d 3f 3f 3f     ==99999999;?=???
+    139c:	3f 3f 3f 3f 3f 3f 3f 3f 3f 3f 3f 3f 3f 3f 3f 3f     ????????????????
+    13ac:	3f 3f 3f 1f 1f 1f 1f 1f 1f 1f 0f 0f 0f 0f 0f 0f     ???.............
+    13bc:	0f 07 07 07 07 03 03 01 01 01 00 00 00 00 00 00     ................
+	...
+    13d4:	22 21 20 20 20 20 20 20 00 00 00 10 10 10 10 10     "!      ........
+    13e4:	10 00 08 08 08 08 04 04 02 02 03 01 00 00 00 00     ................
+	...
+
+00001454 <__ctors_end>:
+    1454:	11 24       	eor	r1, r1
+    1456:	1f be       	out	0x3f, r1	; 63
+    1458:	cf e5       	ldi	r28, 0x5F	; 95
+    145a:	d4 e0       	ldi	r29, 0x04	; 4
+    145c:	de bf       	out	0x3e, r29	; 62
+    145e:	cd bf       	out	0x3d, r28	; 61
+    1460:	0e 94 b1 0b 	call	0x1762	; 0x1762 <main>
+    1464:	0c 94 18 0c 	jmp	0x1830	; 0x1830 <_exit>
+
+00001468 <__bad_interrupt>:
+    1468:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+0000146c <GLCD_Delay>:
+			if(x1>=x2)	x = x1 - (y-y1)*(x1-x2)/(y2-y1);
+			else x = x1 + (y-y1)*(x2-x1)/(y2-y1);
+			GLCD_ClrPixel(x,y);
+		}	
+	}
+    146c:	80 e1       	ldi	r24, 0x10	; 16
+    146e:	00 00       	nop
+    1470:	81 50       	subi	r24, 0x01	; 1
+    1472:	e9 f7       	brne	.-6      	; 0x146e <GLCD_Delay+0x2>
+    1474:	08 95       	ret
+
+00001476 <GLCD_OUT_Set>:
+    1476:	84 b3       	in	r24, 0x14	; 20
+    1478:	8f 61       	ori	r24, 0x1F	; 31
+    147a:	84 bb       	out	0x14, r24	; 20
+    147c:	aa 98       	cbi	0x15, 2	; 21
+    147e:	8f ef       	ldi	r24, 0xFF	; 255
+    1480:	81 bb       	out	0x11, r24	; 17
+    1482:	85 e3       	ldi	r24, 0x35	; 53
+    1484:	8a 95       	dec	r24
+    1486:	f1 f7       	brne	.-4      	; 0x1484 <GLCD_OUT_Set+0xe>
+    1488:	00 00       	nop
+    148a:	12 ba       	out	0x12, r1	; 18
+    148c:	85 e3       	ldi	r24, 0x35	; 53
+    148e:	8a 95       	dec	r24
+    1490:	f1 f7       	brne	.-4      	; 0x148e <GLCD_OUT_Set+0x18>
+    1492:	00 00       	nop
+    1494:	08 95       	ret
+
+00001496 <GLCD_IN_Set>:
+    1496:	84 b3       	in	r24, 0x14	; 20
+    1498:	8f 61       	ori	r24, 0x1F	; 31
+    149a:	84 bb       	out	0x14, r24	; 20
+    149c:	aa 98       	cbi	0x15, 2	; 21
+    149e:	11 ba       	out	0x11, r1	; 17
+    14a0:	85 e3       	ldi	r24, 0x35	; 53
+    14a2:	8a 95       	dec	r24
+    14a4:	f1 f7       	brne	.-4      	; 0x14a2 <GLCD_IN_Set+0xc>
+    14a6:	00 00       	nop
+    14a8:	8f ef       	ldi	r24, 0xFF	; 255
+    14aa:	82 bb       	out	0x12, r24	; 18
+    14ac:	85 e3       	ldi	r24, 0x35	; 53
+    14ae:	8a 95       	dec	r24
+    14b0:	f1 f7       	brne	.-4      	; 0x14ae <GLCD_IN_Set+0x18>
+    14b2:	00 00       	nop
+    14b4:	08 95       	ret
+
+000014b6 <GLCD_SetSide>:
+    14b6:	cf 93       	push	r28
+    14b8:	c8 2f       	mov	r28, r24
+    14ba:	0e 94 3b 0a 	call	0x1476	; 0x1476 <GLCD_OUT_Set>
+    14be:	c1 30       	cpi	r28, 0x01	; 1
+    14c0:	19 f4       	brne	.+6      	; 0x14c8 <GLCD_SetSide+0x12>
+    14c2:	ab 98       	cbi	0x15, 3	; 21
+    14c4:	ac 9a       	sbi	0x15, 4	; 21
+    14c6:	02 c0       	rjmp	.+4      	; 0x14cc <GLCD_SetSide+0x16>
+    14c8:	ab 9a       	sbi	0x15, 3	; 21
+    14ca:	ac 98       	cbi	0x15, 4	; 21
+    14cc:	85 e3       	ldi	r24, 0x35	; 53
+    14ce:	8a 95       	dec	r24
+    14d0:	f1 f7       	brne	.-4      	; 0x14ce <GLCD_SetSide+0x18>
+    14d2:	00 00       	nop
+    14d4:	cf 91       	pop	r28
+    14d6:	08 95       	ret
+
+000014d8 <wait_GLCD>:
+    14d8:	0e 94 4b 0a 	call	0x1496	; 0x1496 <GLCD_IN_Set>
+    14dc:	a8 98       	cbi	0x15, 0	; 21
+    14de:	a9 9a       	sbi	0x15, 1	; 21
+    14e0:	aa 9a       	sbi	0x15, 2	; 21
+    14e2:	0e 94 36 0a 	call	0x146c	; 0x146c <GLCD_Delay>
+    14e6:	aa 98       	cbi	0x15, 2	; 21
+    14e8:	87 9b       	sbis	0x10, 7	; 16
+    14ea:	08 c0       	rjmp	.+16     	; 0x14fc <wait_GLCD+0x24>
+    14ec:	aa 9a       	sbi	0x15, 2	; 21
+    14ee:	85 e3       	ldi	r24, 0x35	; 53
+    14f0:	8a 95       	dec	r24
+    14f2:	f1 f7       	brne	.-4      	; 0x14f0 <wait_GLCD+0x18>
+    14f4:	00 00       	nop
+    14f6:	aa 98       	cbi	0x15, 2	; 21
+    14f8:	87 99       	sbic	0x10, 7	; 16
+    14fa:	f8 cf       	rjmp	.-16     	; 0x14ec <wait_GLCD+0x14>
+    14fc:	08 95       	ret
+
+000014fe <GLCD_SetDISPLAY>:
+    14fe:	cf 93       	push	r28
+    1500:	c8 2f       	mov	r28, r24
+    1502:	0e 94 6c 0a 	call	0x14d8	; 0x14d8 <wait_GLCD>
+    1506:	0e 94 3b 0a 	call	0x1476	; 0x1476 <GLCD_OUT_Set>
+    150a:	a8 98       	cbi	0x15, 0	; 21
+    150c:	a9 98       	cbi	0x15, 1	; 21
+    150e:	c2 5c       	subi	r28, 0xC2	; 194
+    1510:	c2 bb       	out	0x12, r28	; 18
+    1512:	aa 9a       	sbi	0x15, 2	; 21
+    1514:	85 e3       	ldi	r24, 0x35	; 53
+    1516:	8a 95       	dec	r24
+    1518:	f1 f7       	brne	.-4      	; 0x1516 <GLCD_SetDISPLAY+0x18>
+    151a:	00 00       	nop
+    151c:	aa 98       	cbi	0x15, 2	; 21
+    151e:	cf 91       	pop	r28
+    1520:	08 95       	ret
+
+00001522 <GLCD_SetYADDRESS>:
+    1522:	cf 93       	push	r28
+    1524:	c8 2f       	mov	r28, r24
+    1526:	0e 94 6c 0a 	call	0x14d8	; 0x14d8 <wait_GLCD>
+    152a:	0e 94 3b 0a 	call	0x1476	; 0x1476 <GLCD_OUT_Set>
+    152e:	a8 98       	cbi	0x15, 0	; 21
+    1530:	a9 98       	cbi	0x15, 1	; 21
+    1532:	c0 5c       	subi	r28, 0xC0	; 192
+    1534:	c2 bb       	out	0x12, r28	; 18
+    1536:	aa 9a       	sbi	0x15, 2	; 21
+    1538:	85 e3       	ldi	r24, 0x35	; 53
+    153a:	8a 95       	dec	r24
+    153c:	f1 f7       	brne	.-4      	; 0x153a <GLCD_SetYADDRESS+0x18>
+    153e:	00 00       	nop
+    1540:	aa 98       	cbi	0x15, 2	; 21
+    1542:	cf 91       	pop	r28
+    1544:	08 95       	ret
+
+00001546 <GLCD_SetXADDRESS>:
+    1546:	cf 93       	push	r28
+    1548:	c8 2f       	mov	r28, r24
+    154a:	0e 94 6c 0a 	call	0x14d8	; 0x14d8 <wait_GLCD>
+    154e:	0e 94 3b 0a 	call	0x1476	; 0x1476 <GLCD_OUT_Set>
+    1552:	a8 98       	cbi	0x15, 0	; 21
+    1554:	a9 98       	cbi	0x15, 1	; 21
+    1556:	c8 54       	subi	r28, 0x48	; 72
+    1558:	c2 bb       	out	0x12, r28	; 18
+    155a:	aa 9a       	sbi	0x15, 2	; 21
+    155c:	85 e3       	ldi	r24, 0x35	; 53
+    155e:	8a 95       	dec	r24
+    1560:	f1 f7       	brne	.-4      	; 0x155e <GLCD_SetXADDRESS+0x18>
+    1562:	00 00       	nop
+    1564:	aa 98       	cbi	0x15, 2	; 21
+    1566:	cf 91       	pop	r28
+    1568:	08 95       	ret
+
+0000156a <GLCD_StartLine>:
+    156a:	cf 93       	push	r28
+    156c:	c8 2f       	mov	r28, r24
+    156e:	0e 94 6c 0a 	call	0x14d8	; 0x14d8 <wait_GLCD>
+    1572:	0e 94 3b 0a 	call	0x1476	; 0x1476 <GLCD_OUT_Set>
+    1576:	a8 98       	cbi	0x15, 0	; 21
+    1578:	a9 98       	cbi	0x15, 1	; 21
+    157a:	80 e0       	ldi	r24, 0x00	; 0
+    157c:	0e 94 5b 0a 	call	0x14b6	; 0x14b6 <GLCD_SetSide>
+    1580:	c0 54       	subi	r28, 0x40	; 64
+    1582:	c2 bb       	out	0x12, r28	; 18
+    1584:	aa 9a       	sbi	0x15, 2	; 21
+    1586:	85 e3       	ldi	r24, 0x35	; 53
+    1588:	8a 95       	dec	r24
+    158a:	f1 f7       	brne	.-4      	; 0x1588 <GLCD_StartLine+0x1e>
+    158c:	00 00       	nop
+    158e:	aa 98       	cbi	0x15, 2	; 21
+    1590:	81 e0       	ldi	r24, 0x01	; 1
+    1592:	0e 94 5b 0a 	call	0x14b6	; 0x14b6 <GLCD_SetSide>
+    1596:	aa 9a       	sbi	0x15, 2	; 21
+    1598:	c2 bb       	out	0x12, r28	; 18
+    159a:	85 e3       	ldi	r24, 0x35	; 53
+    159c:	8a 95       	dec	r24
+    159e:	f1 f7       	brne	.-4      	; 0x159c <GLCD_StartLine+0x32>
+    15a0:	00 00       	nop
+    15a2:	aa 98       	cbi	0x15, 2	; 21
+    15a4:	cf 91       	pop	r28
+    15a6:	08 95       	ret
+
+000015a8 <GLCD_WriteDATA>:
+    15a8:	cf 93       	push	r28
+    15aa:	c8 2f       	mov	r28, r24
+    15ac:	0e 94 6c 0a 	call	0x14d8	; 0x14d8 <wait_GLCD>
+    15b0:	0e 94 3b 0a 	call	0x1476	; 0x1476 <GLCD_OUT_Set>
+    15b4:	a8 9a       	sbi	0x15, 0	; 21
+    15b6:	a9 98       	cbi	0x15, 1	; 21
+    15b8:	c2 bb       	out	0x12, r28	; 18
+    15ba:	aa 9a       	sbi	0x15, 2	; 21
+    15bc:	85 e3       	ldi	r24, 0x35	; 53
+    15be:	8a 95       	dec	r24
+    15c0:	f1 f7       	brne	.-4      	; 0x15be <GLCD_WriteDATA+0x16>
+    15c2:	00 00       	nop
+    15c4:	aa 98       	cbi	0x15, 2	; 21
+    15c6:	85 e3       	ldi	r24, 0x35	; 53
+    15c8:	8a 95       	dec	r24
+    15ca:	f1 f7       	brne	.-4      	; 0x15c8 <GLCD_WriteDATA+0x20>
+    15cc:	00 00       	nop
+    15ce:	cf 91       	pop	r28
+    15d0:	08 95       	ret
+
+000015d2 <GLCD_Init>:
+    15d2:	80 e0       	ldi	r24, 0x00	; 0
+    15d4:	0e 94 5b 0a 	call	0x14b6	; 0x14b6 <GLCD_SetSide>
+    15d8:	85 e3       	ldi	r24, 0x35	; 53
+    15da:	8a 95       	dec	r24
+    15dc:	f1 f7       	brne	.-4      	; 0x15da <GLCD_Init+0x8>
+    15de:	00 00       	nop
+    15e0:	81 e0       	ldi	r24, 0x01	; 1
+    15e2:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <GLCD_SetDISPLAY>
+    15e6:	85 e3       	ldi	r24, 0x35	; 53
+    15e8:	8a 95       	dec	r24
+    15ea:	f1 f7       	brne	.-4      	; 0x15e8 <GLCD_Init+0x16>
+    15ec:	00 00       	nop
+    15ee:	80 e0       	ldi	r24, 0x00	; 0
+    15f0:	0e 94 91 0a 	call	0x1522	; 0x1522 <GLCD_SetYADDRESS>
+    15f4:	85 e3       	ldi	r24, 0x35	; 53
+    15f6:	8a 95       	dec	r24
+    15f8:	f1 f7       	brne	.-4      	; 0x15f6 <GLCD_Init+0x24>
+    15fa:	00 00       	nop
+    15fc:	80 e0       	ldi	r24, 0x00	; 0
+    15fe:	0e 94 a3 0a 	call	0x1546	; 0x1546 <GLCD_SetXADDRESS>
+    1602:	85 e3       	ldi	r24, 0x35	; 53
+    1604:	8a 95       	dec	r24
+    1606:	f1 f7       	brne	.-4      	; 0x1604 <GLCD_Init+0x32>
+    1608:	00 00       	nop
+    160a:	80 e0       	ldi	r24, 0x00	; 0
+    160c:	0e 94 b5 0a 	call	0x156a	; 0x156a <GLCD_StartLine>
+    1610:	85 e3       	ldi	r24, 0x35	; 53
+    1612:	8a 95       	dec	r24
+    1614:	f1 f7       	brne	.-4      	; 0x1612 <GLCD_Init+0x40>
+    1616:	00 00       	nop
+    1618:	81 e0       	ldi	r24, 0x01	; 1
+    161a:	0e 94 5b 0a 	call	0x14b6	; 0x14b6 <GLCD_SetSide>
+    161e:	85 e3       	ldi	r24, 0x35	; 53
+    1620:	8a 95       	dec	r24
+    1622:	f1 f7       	brne	.-4      	; 0x1620 <GLCD_Init+0x4e>
+    1624:	00 00       	nop
+    1626:	81 e0       	ldi	r24, 0x01	; 1
+    1628:	0e 94 7f 0a 	call	0x14fe	; 0x14fe <GLCD_SetDISPLAY>
+    162c:	85 e3       	ldi	r24, 0x35	; 53
+    162e:	8a 95       	dec	r24
+    1630:	f1 f7       	brne	.-4      	; 0x162e <GLCD_Init+0x5c>
+    1632:	00 00       	nop
+    1634:	80 e0       	ldi	r24, 0x00	; 0
+    1636:	0e 94 91 0a 	call	0x1522	; 0x1522 <GLCD_SetYADDRESS>
+    163a:	85 e3       	ldi	r24, 0x35	; 53
+    163c:	8a 95       	dec	r24
+    163e:	f1 f7       	brne	.-4      	; 0x163c <GLCD_Init+0x6a>
+    1640:	00 00       	nop
+    1642:	80 e0       	ldi	r24, 0x00	; 0
+    1644:	0e 94 a3 0a 	call	0x1546	; 0x1546 <GLCD_SetXADDRESS>
+    1648:	85 e3       	ldi	r24, 0x35	; 53
+    164a:	8a 95       	dec	r24
+    164c:	f1 f7       	brne	.-4      	; 0x164a <GLCD_Init+0x78>
+    164e:	00 00       	nop
+    1650:	80 e0       	ldi	r24, 0x00	; 0
+    1652:	0e 94 b5 0a 	call	0x156a	; 0x156a <GLCD_StartLine>
+    1656:	85 e3       	ldi	r24, 0x35	; 53
+    1658:	8a 95       	dec	r24
+    165a:	f1 f7       	brne	.-4      	; 0x1658 <GLCD_Init+0x86>
+    165c:	00 00       	nop
+    165e:	08 95       	ret
+
+00001660 <GLCD_GotoXY>:
+    1660:	1f 93       	push	r17
+    1662:	cf 93       	push	r28
+    1664:	df 93       	push	r29
+    1666:	18 2f       	mov	r17, r24
+    1668:	d6 2f       	mov	r29, r22
+    166a:	c6 2f       	mov	r28, r22
+    166c:	c2 95       	swap	r28
+    166e:	c6 95       	lsr	r28
+    1670:	c6 95       	lsr	r28
+    1672:	c3 70       	andi	r28, 0x03	; 3
+    1674:	8c 2f       	mov	r24, r28
+    1676:	0e 94 5b 0a 	call	0x14b6	; 0x14b6 <GLCD_SetSide>
+    167a:	8d 2f       	mov	r24, r29
+    167c:	90 e4       	ldi	r25, 0x40	; 64
+    167e:	c9 9f       	mul	r28, r25
+    1680:	80 19       	sub	r24, r0
+    1682:	11 24       	eor	r1, r1
+    1684:	0e 94 91 0a 	call	0x1522	; 0x1522 <GLCD_SetYADDRESS>
+    1688:	8a e1       	ldi	r24, 0x1A	; 26
+    168a:	8a 95       	dec	r24
+    168c:	f1 f7       	brne	.-4      	; 0x168a <GLCD_GotoXY+0x2a>
+    168e:	00 c0       	rjmp	.+0      	; 0x1690 <GLCD_GotoXY+0x30>
+    1690:	81 2f       	mov	r24, r17
+    1692:	0e 94 a3 0a 	call	0x1546	; 0x1546 <GLCD_SetXADDRESS>
+    1696:	df 91       	pop	r29
+    1698:	cf 91       	pop	r28
+    169a:	1f 91       	pop	r17
+    169c:	08 95       	ret
+
+0000169e <GLCD_Clr>:
+    169e:	cf 93       	push	r28
+    16a0:	df 93       	push	r29
+    16a2:	d0 e0       	ldi	r29, 0x00	; 0
+    16a4:	60 e0       	ldi	r22, 0x00	; 0
+    16a6:	8d 2f       	mov	r24, r29
+    16a8:	0e 94 30 0b 	call	0x1660	; 0x1660 <GLCD_GotoXY>
+    16ac:	c0 e4       	ldi	r28, 0x40	; 64
+    16ae:	80 e0       	ldi	r24, 0x00	; 0
+    16b0:	0e 94 d4 0a 	call	0x15a8	; 0x15a8 <GLCD_WriteDATA>
+    16b4:	c1 50       	subi	r28, 0x01	; 1
+    16b6:	d9 f7       	brne	.-10     	; 0x16ae <GLCD_Clr+0x10>
+    16b8:	8a e1       	ldi	r24, 0x1A	; 26
+    16ba:	8a 95       	dec	r24
+    16bc:	f1 f7       	brne	.-4      	; 0x16ba <GLCD_Clr+0x1c>
+    16be:	00 c0       	rjmp	.+0      	; 0x16c0 <GLCD_Clr+0x22>
+    16c0:	df 5f       	subi	r29, 0xFF	; 255
+    16c2:	d8 30       	cpi	r29, 0x08	; 8
+    16c4:	79 f7       	brne	.-34     	; 0x16a4 <GLCD_Clr+0x6>
+    16c6:	d0 e0       	ldi	r29, 0x00	; 0
+    16c8:	60 e4       	ldi	r22, 0x40	; 64
+    16ca:	8d 2f       	mov	r24, r29
+    16cc:	0e 94 30 0b 	call	0x1660	; 0x1660 <GLCD_GotoXY>
+    16d0:	c0 e4       	ldi	r28, 0x40	; 64
+    16d2:	80 e0       	ldi	r24, 0x00	; 0
+    16d4:	0e 94 d4 0a 	call	0x15a8	; 0x15a8 <GLCD_WriteDATA>
+    16d8:	c1 50       	subi	r28, 0x01	; 1
+    16da:	d9 f7       	brne	.-10     	; 0x16d2 <GLCD_Clr+0x34>
+    16dc:	8a e1       	ldi	r24, 0x1A	; 26
+    16de:	8a 95       	dec	r24
+    16e0:	f1 f7       	brne	.-4      	; 0x16de <GLCD_Clr+0x40>
+    16e2:	00 c0       	rjmp	.+0      	; 0x16e4 <GLCD_Clr+0x46>
+    16e4:	df 5f       	subi	r29, 0xFF	; 255
+    16e6:	d8 30       	cpi	r29, 0x08	; 8
+    16e8:	79 f7       	brne	.-34     	; 0x16c8 <GLCD_Clr+0x2a>
+    16ea:	df 91       	pop	r29
+    16ec:	cf 91       	pop	r28
+    16ee:	08 95       	ret
+
+000016f0 <GLCD_PutBMP>:
+    16f0:	df 92       	push	r13
+    16f2:	ef 92       	push	r14
+    16f4:	ff 92       	push	r15
+    16f6:	0f 93       	push	r16
+    16f8:	1f 93       	push	r17
+    16fa:	cf 93       	push	r28
+    16fc:	df 93       	push	r29
+    16fe:	8c 01       	movw	r16, r24
+    1700:	00 5c       	subi	r16, 0xC0	; 192
+    1702:	1f 4f       	sbci	r17, 0xFF	; 255
+    1704:	d1 2c       	mov	r13, r1
+    1706:	60 e0       	ldi	r22, 0x00	; 0
+    1708:	8d 2d       	mov	r24, r13
+    170a:	0e 94 30 0b 	call	0x1660	; 0x1660 <GLCD_GotoXY>
+    170e:	e8 01       	movw	r28, r16
+    1710:	c0 54       	subi	r28, 0x40	; 64
+    1712:	d1 09       	sbc	r29, r1
+    1714:	fe 01       	movw	r30, r28
+    1716:	84 91       	lpm	r24, Z
+    1718:	0e 94 d4 0a 	call	0x15a8	; 0x15a8 <GLCD_WriteDATA>
+    171c:	21 96       	adiw	r28, 0x01	; 1
+    171e:	0c 17       	cp	r16, r28
+    1720:	1d 07       	cpc	r17, r29
+    1722:	c1 f7       	brne	.-16     	; 0x1714 <GLCD_PutBMP+0x24>
+    1724:	60 e4       	ldi	r22, 0x40	; 64
+    1726:	8d 2d       	mov	r24, r13
+    1728:	0e 94 30 0b 	call	0x1660	; 0x1660 <GLCD_GotoXY>
+    172c:	78 01       	movw	r14, r16
+    172e:	f0 e4       	ldi	r31, 0x40	; 64
+    1730:	ef 0e       	add	r14, r31
+    1732:	f1 1c       	adc	r15, r1
+    1734:	e8 01       	movw	r28, r16
+    1736:	fe 01       	movw	r30, r28
+    1738:	84 91       	lpm	r24, Z
+    173a:	0e 94 d4 0a 	call	0x15a8	; 0x15a8 <GLCD_WriteDATA>
+    173e:	21 96       	adiw	r28, 0x01	; 1
+    1740:	ce 15       	cp	r28, r14
+    1742:	df 05       	cpc	r29, r15
+    1744:	c1 f7       	brne	.-16     	; 0x1736 <GLCD_PutBMP+0x46>
+    1746:	d3 94       	inc	r13
+    1748:	00 58       	subi	r16, 0x80	; 128
+    174a:	1f 4f       	sbci	r17, 0xFF	; 255
+    174c:	f8 e0       	ldi	r31, 0x08	; 8
+    174e:	df 12       	cpse	r13, r31
+    1750:	da cf       	rjmp	.-76     	; 0x1706 <GLCD_PutBMP+0x16>
+    1752:	df 91       	pop	r29
+    1754:	cf 91       	pop	r28
+    1756:	1f 91       	pop	r17
+    1758:	0f 91       	pop	r16
+    175a:	ff 90       	pop	r15
+    175c:	ef 90       	pop	r14
+    175e:	df 90       	pop	r13
+    1760:	08 95       	ret
+
+00001762 <main>:
+#include "Image.h"
+
+int main(void){
+	// value
+	// port
+	cbi(DDRA, PA0);
+    1762:	d0 98       	cbi	0x1a, 0	; 26
+	//
+	GLCD_Init();
+    1764:	0e 94 e9 0a 	call	0x15d2	; 0x15d2 <GLCD_Init>
+	//
+	while(1)
+	{
+		GLCD_Clr();	
+    1768:	0e 94 4f 0b 	call	0x169e	; 0x169e <GLCD_Clr>
+		GLCD_PutBMP(anime);
+    176c:	84 e5       	ldi	r24, 0x54	; 84
+    176e:	90 e1       	ldi	r25, 0x10	; 16
+    1770:	0e 94 78 0b 	call	0x16f0	; 0x16f0 <GLCD_PutBMP>
+		while(1) 
+		{
+			if(bit_is_clear(PINA, 0)) 
+    1774:	c8 99       	sbic	0x19, 0	; 25
+    1776:	03 c0       	rjmp	.+6      	; 0x177e <main+0x1c>
+			{
+				while(bit_is_clear(PINA, 0));
+    1778:	c8 9b       	sbis	0x19, 0	; 25
+    177a:	fe cf       	rjmp	.-4      	; 0x1778 <main+0x16>
+    177c:	09 c0       	rjmp	.+18     	; 0x1790 <main+0x2e>
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+    177e:	8f e3       	ldi	r24, 0x3F	; 63
+    1780:	9c e9       	ldi	r25, 0x9C	; 156
+    1782:	01 97       	sbiw	r24, 0x01	; 1
+    1784:	f1 f7       	brne	.-4      	; 0x1782 <main+0x20>
+    1786:	00 c0       	rjmp	.+0      	; 0x1788 <main+0x26>
+    1788:	00 00       	nop
+	{
+		GLCD_Clr();	
+		GLCD_PutBMP(anime);
+		while(1) 
+		{
+			if(bit_is_clear(PINA, 0)) 
+    178a:	c8 99       	sbic	0x19, 0	; 25
+    178c:	f8 cf       	rjmp	.-16     	; 0x177e <main+0x1c>
+    178e:	f4 cf       	rjmp	.-24     	; 0x1778 <main+0x16>
+				while(bit_is_clear(PINA, 0));
+				break;
+			}
+			_delay_ms(10);
+		}
+		GLCD_Clr();
+    1790:	0e 94 4f 0b 	call	0x169e	; 0x169e <GLCD_Clr>
+		GLCD_PutBMP(panda);
+    1794:	84 e5       	ldi	r24, 0x54	; 84
+    1796:	9c e0       	ldi	r25, 0x0C	; 12
+    1798:	0e 94 78 0b 	call	0x16f0	; 0x16f0 <GLCD_PutBMP>
+		while(1)
+		{
+			if(bit_is_clear(PINA, 0))
+    179c:	c8 99       	sbic	0x19, 0	; 25
+    179e:	03 c0       	rjmp	.+6      	; 0x17a6 <main+0x44>
+			{
+				while(bit_is_clear(PINA, 0));
+    17a0:	c8 9b       	sbis	0x19, 0	; 25
+    17a2:	fe cf       	rjmp	.-4      	; 0x17a0 <main+0x3e>
+    17a4:	09 c0       	rjmp	.+18     	; 0x17b8 <main+0x56>
+    17a6:	8f e3       	ldi	r24, 0x3F	; 63
+    17a8:	9c e9       	ldi	r25, 0x9C	; 156
+    17aa:	01 97       	sbiw	r24, 0x01	; 1
+    17ac:	f1 f7       	brne	.-4      	; 0x17aa <main+0x48>
+    17ae:	00 c0       	rjmp	.+0      	; 0x17b0 <main+0x4e>
+    17b0:	00 00       	nop
+		}
+		GLCD_Clr();
+		GLCD_PutBMP(panda);
+		while(1)
+		{
+			if(bit_is_clear(PINA, 0))
+    17b2:	c8 99       	sbic	0x19, 0	; 25
+    17b4:	f8 cf       	rjmp	.-16     	; 0x17a6 <main+0x44>
+    17b6:	f4 cf       	rjmp	.-24     	; 0x17a0 <main+0x3e>
+				while(bit_is_clear(PINA, 0));
+				break;
+			}
+			_delay_ms(10);
+		}
+		GLCD_Clr();
+    17b8:	0e 94 4f 0b 	call	0x169e	; 0x169e <GLCD_Clr>
+		GLCD_PutBMP(cat);
+    17bc:	84 e5       	ldi	r24, 0x54	; 84
+    17be:	98 e0       	ldi	r25, 0x08	; 8
+    17c0:	0e 94 78 0b 	call	0x16f0	; 0x16f0 <GLCD_PutBMP>
+		while(1)
+		{
+			if(bit_is_clear(PINA, 0))
+    17c4:	c8 99       	sbic	0x19, 0	; 25
+    17c6:	03 c0       	rjmp	.+6      	; 0x17ce <main+0x6c>
+			{
+				while(bit_is_clear(PINA, 0));
+    17c8:	c8 9b       	sbis	0x19, 0	; 25
+    17ca:	fe cf       	rjmp	.-4      	; 0x17c8 <main+0x66>
+    17cc:	09 c0       	rjmp	.+18     	; 0x17e0 <main+0x7e>
+    17ce:	8f e3       	ldi	r24, 0x3F	; 63
+    17d0:	9c e9       	ldi	r25, 0x9C	; 156
+    17d2:	01 97       	sbiw	r24, 0x01	; 1
+    17d4:	f1 f7       	brne	.-4      	; 0x17d2 <main+0x70>
+    17d6:	00 c0       	rjmp	.+0      	; 0x17d8 <main+0x76>
+    17d8:	00 00       	nop
+		}
+		GLCD_Clr();
+		GLCD_PutBMP(cat);
+		while(1)
+		{
+			if(bit_is_clear(PINA, 0))
+    17da:	c8 99       	sbic	0x19, 0	; 25
+    17dc:	f8 cf       	rjmp	.-16     	; 0x17ce <main+0x6c>
+    17de:	f4 cf       	rjmp	.-24     	; 0x17c8 <main+0x66>
+				while(bit_is_clear(PINA, 0));
+				break;
+			}
+			_delay_ms(10);
+		}
+		GLCD_Clr();
+    17e0:	0e 94 4f 0b 	call	0x169e	; 0x169e <GLCD_Clr>
+		GLCD_PutBMP(anime_v5);
+    17e4:	84 e5       	ldi	r24, 0x54	; 84
+    17e6:	94 e0       	ldi	r25, 0x04	; 4
+    17e8:	0e 94 78 0b 	call	0x16f0	; 0x16f0 <GLCD_PutBMP>
+		while(1)
+		{
+			if(bit_is_clear(PINA, 0))
+    17ec:	c8 99       	sbic	0x19, 0	; 25
+    17ee:	03 c0       	rjmp	.+6      	; 0x17f6 <main+0x94>
+			{
+				while(bit_is_clear(PINA, 0));
+    17f0:	c8 9b       	sbis	0x19, 0	; 25
+    17f2:	fe cf       	rjmp	.-4      	; 0x17f0 <main+0x8e>
+    17f4:	09 c0       	rjmp	.+18     	; 0x1808 <main+0xa6>
+    17f6:	8f e3       	ldi	r24, 0x3F	; 63
+    17f8:	9c e9       	ldi	r25, 0x9C	; 156
+    17fa:	01 97       	sbiw	r24, 0x01	; 1
+    17fc:	f1 f7       	brne	.-4      	; 0x17fa <main+0x98>
+    17fe:	00 c0       	rjmp	.+0      	; 0x1800 <main+0x9e>
+    1800:	00 00       	nop
+		}
+		GLCD_Clr();
+		GLCD_PutBMP(anime_v5);
+		while(1)
+		{
+			if(bit_is_clear(PINA, 0))
+    1802:	c8 99       	sbic	0x19, 0	; 25
+    1804:	f8 cf       	rjmp	.-16     	; 0x17f6 <main+0x94>
+    1806:	f4 cf       	rjmp	.-24     	; 0x17f0 <main+0x8e>
+				while(bit_is_clear(PINA, 0));
+				break;
+			}
+			_delay_ms(10);
+		}
+		GLCD_Clr();
+    1808:	0e 94 4f 0b 	call	0x169e	; 0x169e <GLCD_Clr>
+		GLCD_PutBMP(khung_long);
+    180c:	84 e5       	ldi	r24, 0x54	; 84
+    180e:	90 e0       	ldi	r25, 0x00	; 0
+    1810:	0e 94 78 0b 	call	0x16f0	; 0x16f0 <GLCD_PutBMP>
+		while(1)
+		{
+			if(bit_is_clear(PINA, 0))
+    1814:	c8 99       	sbic	0x19, 0	; 25
+    1816:	03 c0       	rjmp	.+6      	; 0x181e <main+0xbc>
+			{
+				while(bit_is_clear(PINA, 0));
+    1818:	c8 9b       	sbis	0x19, 0	; 25
+    181a:	fe cf       	rjmp	.-4      	; 0x1818 <main+0xb6>
+    181c:	a5 cf       	rjmp	.-182    	; 0x1768 <main+0x6>
+    181e:	8f e3       	ldi	r24, 0x3F	; 63
+    1820:	9c e9       	ldi	r25, 0x9C	; 156
+    1822:	01 97       	sbiw	r24, 0x01	; 1
+    1824:	f1 f7       	brne	.-4      	; 0x1822 <main+0xc0>
+    1826:	00 c0       	rjmp	.+0      	; 0x1828 <main+0xc6>
+    1828:	00 00       	nop
+		}
+		GLCD_Clr();
+		GLCD_PutBMP(khung_long);
+		while(1)
+		{
+			if(bit_is_clear(PINA, 0))
+    182a:	c8 99       	sbic	0x19, 0	; 25
+    182c:	f8 cf       	rjmp	.-16     	; 0x181e <main+0xbc>
+    182e:	f4 cf       	rjmp	.-24     	; 0x1818 <main+0xb6>
+
+00001830 <_exit>:
+    1830:	f8 94       	cli
+
+00001832 <__stop_program>:
+    1832:	ff cf       	rjmp	.-2      	; 0x1832 <__stop_program>

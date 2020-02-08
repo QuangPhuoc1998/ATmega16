@@ -1,0 +1,22 @@
+RAM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+EEPROM Allocation [bytes]
+Variable                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                                          Register  Size
+------------------------------------------------------------------------------------------------
+
+FLASH Allocation [words]
+Function                                                                          Address   Size
+------------------------------------------------------------------------------------------------
+main                                                                              0x00060     16
+PWM_Init                                                                          0x00070     23
+Lcd_Port                                                                          0x00087     26
+Lcd_Cmd                                                                           0x000A1     12
+Lcd_Init                                                                          0x000AD     23
+Lcd_Write_Char                                                                    0x000C4     20
+Lcd_Write_String                                                                  0x000D8     28

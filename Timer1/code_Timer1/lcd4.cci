@@ -1,0 +1,12 @@
+VERSION:3 SOURCE_TIMESTAMP:4E8BB430
+NODE:I LEVEL:0 LINE:2 "E:\AVR\ATmega16\Timer1\code_Timer1\main.h"
+NODE:I LEVEL:0 LINE:3 "E:\AVR\ATmega16\Timer1\code_Timer1\lcd4.h"
+NODE:F LEVEL:0 LINE:5 "Lcd_Port(unsigned char a)"
+NODE:F LEVEL:0 LINE:27 "Lcd_Cmd(unsigned char a)"
+NODE:F LEVEL:0 LINE:36 "Lcd_Clear(void)"
+NODE:F LEVEL:0 LINE:42 "Lcd_Set_Cursor(unsigned char a,unsigned char b)"
+NODE:F LEVEL:0 LINE:63 "Lcd_Init(void)"
+NODE:F LEVEL:0 LINE:82 "Lcd_Write_Char(unsigned char a)"
+NODE:F LEVEL:0 LINE:98 "Lcd_Write_String(unsigned char * a)"
+NODE:F LEVEL:0 LINE:105 "Lcd_Shift_Right(void)"
+NODE:F LEVEL:0 LINE:111 "Lcd_Shift_Left(void)"

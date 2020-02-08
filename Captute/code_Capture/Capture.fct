@@ -1,0 +1,6 @@
+main DSTACK_USAGE:0 DSTACK_LEVEL:0 FILE:"Capture.c" LINE:14
+lcd_puts DSTACK_USAGE:3 DSTACK_LEVEL:3 FILE:"D:\CodeVisionAVR\lib\lcd.lib" LINE:210
+lcd_putchar DSTACK_USAGE:1 DSTACK_LEVEL:4 FILE:"D:\CodeVisionAVR\lib\lcd.lib" LINE:178
+lcd_gotoxy DSTACK_USAGE:2 DSTACK_LEVEL:6 FILE:"D:\CodeVisionAVR\lib\lcd.lib" LINE:158
+_lcd_write_data DSTACK_USAGE:1 DSTACK_LEVEL:7 FILE:"D:\CodeVisionAVR\lib\lcd.lib" LINE:77
+tim1_capt_isr DSTACK_USAGE:11 DSTACK_LEVEL:18 FILE:"Capture.c" LINE:49
