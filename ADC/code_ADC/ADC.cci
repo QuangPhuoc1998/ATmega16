@@ -1,0 +1,6 @@
+VERSION:3 SOURCE_TIMESTAMP:4E8CAC43
+NODE:I LEVEL:0 LINE:8 "E:\AVR\ATmega16\ADC\code_ADC\main.h"
+NODE:I LEVEL:0 LINE:9 "E:\AVR\ATmega16\ADC\code_ADC\lcd4.h"
+NODE:F LEVEL:0 LINE:13 "main(void)"
+NODE:F LEVEL:0 LINE:47 "ADC_Init(void)"
+NODE:F LEVEL:0 LINE:54 "Read_ADC(unsigned char channel)"
