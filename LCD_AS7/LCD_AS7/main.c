@@ -18,16 +18,20 @@
 
 int main(void)
 { 
-	char i;
+	char i = 4;
     DDRB = 0xFF;
 	float value = 123.456;
 	char buffer[10];
 	sprintf(buffer,"%d",123);
     Lcd4_Init();
-	Lcd4_Set_Cursor(1,0);
-	Lcd4_Write_String(buffer);
     while (1) 
     {
+		Lcd4_Set_Cursor(1,0);
+		(i==5) ? Lcd4_Write_String("123") : Lcd4_Write_String("456");
+		  
+		  
+
+
 		
     }
 }

@@ -23,6 +23,7 @@ char number_1[] = {
 0x00,0xFE,0xFF,0x83,0xFF,0xFE,0x00,  0x00,0x7F,0xFF,0xC1,0xFF,0x7F,0x00, // 8
 0x00,0xFF,0xFF,0x83,0xFF,0xFF,0x00,  0x00,0xC1,0xC1,0xC1,0xFF,0xFF,0x00,  // 9
 0x00,0x00,0x38,0x38,0x38,0x00,0x00,  0x00,0x00,0x1C,0x1C,0x1C,0x00,0x00,  // :
+0x00,0x00,0x00,0x00,0x00,0x00,0x00,  0x00,0x00,0x00,0x00,0x00,0x00,0x00
 };
 
 #define DHT11_PIN 0
@@ -30,7 +31,212 @@ char number_1[] = {
 #define DHT11_PORT PORTA
 #define DHT11_LG PINA
 
+typedef struct
+{
+	uint8_t sec;
+	uint8_t min;
+	uint8_t hour;
+	uint8_t weekDay;
+	uint8_t date;
+	uint8_t month;
+	uint8_t year;
+}rtc_t;
+/*---global variable--*/
+uint8_t i;
 uint8_t I_RH,D_RH,I_Temp,D_Temp,CheckSum;
+/*-----*/
+uint8_t I_RH,D_RH,I_Temp,D_Temp,CheckSum;
+void DS1307_Init(rtc_t *rtc);
+void DS1307_Get_time(rtc_t *rtc);
+void blink();
+uint8_t Edit_time(uint8_t row, uint8_t column_1, uint8_t column_2, int8_t parameter);
+void Request();				
+void Response();
+uint8_t Receive_data();
+uint8_t Edit_time(uint8_t row, uint8_t column_1, uint8_t column_2, int8_t parameter);
+void Display(unsigned char line, unsigned char col, unsigned char number);
+void Display_Time(rtc_t *rtc);
+int DECIMALtoBCD(int DEC);
+int BCDtoDECIMAL(int BCD);
+
+
+int main(void)
+{
+	/*------*/
+	rtc_t rtc;
+	rtc.hour = 0x12; //  10:40:20 am
+	rtc.min =  0x00;
+	rtc.sec =  0x00;
+
+	rtc.date = 0x01; //1st Jan 2016
+	rtc.month = 0x01;
+	rtc.year = 0x09;
+	rtc.weekDay = 4;
+	/*---port---*/
+	cbi(DDRA,1);
+	cbi(DDRA,2);
+	cbi(DDRA,3);
+	/*------*/
+    GLCD_Init();
+	I2C_Init();
+    GLCD_Clr();
+	GLCD_PutBMP(khung);
+    while(1)
+	{
+		/*------ Set time ------*/
+		if(bit_is_clear(PINA,1))
+		{
+			while(bit_is_clear(PINA,1));
+			_delay_ms(10);
+			i = 0;
+			rtc.hour = Edit_time(1,11,17,rtc.hour);
+			rtc.min = Edit_time(1,29,35,rtc.min);
+			//rtc.date = Edit_time(2,3,rtc.date);
+			//rtc.month = Edit_time(2,6,rtc.month);
+			//rtc.year = Edit_time(2,11,rtc.year);
+			rtc.sec = 0;
+			DS1307_Init(&rtc);
+		}
+		/*------ DHT11------*/
+		Request();		/* send start pulse */
+		Response();		/* receive response */
+		I_RH=Receive_data();	/* store first eight bit in I_RH */
+		D_RH=Receive_data();	/* store next eight bit in D_RH */
+		I_Temp=Receive_data();	/* store next eight bit in I_Temp */
+		D_Temp=Receive_data();	/* store next eight bit in D_Temp */
+		CheckSum=Receive_data();/* store next eight bit in CheckSum */
+		
+		if ((I_RH + D_RH + I_Temp + D_Temp) != CheckSum);
+		else
+		{
+			GLCD_PutChar78(2,92,I_Temp/10+48);
+			GLCD_PutChar78(2,99,I_Temp%10+48);
+			GLCD_Print78(2,106,"oC");
+			//
+			GLCD_PutChar78(6,94,I_RH/10+48);
+			GLCD_PutChar78(6,101,I_RH%10+48);
+			GLCD_PutChar78(6,110,'%');
+		}
+		/*------DS1307------*/
+		DS1307_Get_time(&rtc);
+		Display_Time(&rtc);
+		_delay_ms(1000);
+    }
+    return 0;
+}
+void DS1307_Init(rtc_t *rtc)
+{
+	rtc->hour = DECIMALtoBCD(rtc->hour);
+	rtc->min = DECIMALtoBCD(rtc->min);
+	rtc->date = DECIMALtoBCD(rtc->date);
+	rtc->month = DECIMALtoBCD(rtc->month);
+	rtc->year = DECIMALtoBCD(rtc->year);
+	/*--------*/
+	I2C_Start_Wait(0xD0);     // connect to DS1307 by sending its ID on I2c Bus
+	I2C_Write(0x00); // Request sec RAM address at 00H
+	
+	I2C_Write(rtc->sec);                    // Write sec from RAM address 00H
+	I2C_Write(rtc->min);                    // Write min from RAM address 01H
+	I2C_Write(rtc->hour);                    // Write hour from RAM address 02H
+	I2C_Write(rtc->weekDay);                // Write weekDay on RAM address 03H
+	I2C_Write(rtc->date);                    // Write date on RAM address 04H
+	I2C_Write(rtc->month);                    // Write month on RAM address 05H
+	I2C_Write(rtc->year);                    // Write year on RAM address 06h
+	
+	I2C_Stop();                              // Stop I2C communication after Setting the Date
+}
+void DS1307_Get_time(rtc_t *rtc)
+{
+	I2C_Start_Wait(0xD0);
+	I2C_Write(0x00);
+	I2C_Repeated_Start(0xD1);
+	rtc->sec = I2C_Read_Ack();
+	rtc->min = I2C_Read_Ack();
+	rtc->hour= I2C_Read_Ack();
+	rtc->weekDay = I2C_Read_Ack();
+	rtc->date = I2C_Read_Ack();
+	rtc->month =I2C_Read_Ack();
+	rtc->year = I2C_Read_Nack();
+	I2C_Stop();
+	
+	rtc->sec = BCDtoDECIMAL(rtc->sec);
+	rtc->min = BCDtoDECIMAL(rtc->min);
+	rtc->hour = BCDtoDECIMAL(rtc->hour);
+	rtc->weekDay = BCDtoDECIMAL(rtc->weekDay);
+	rtc->date = BCDtoDECIMAL(rtc->date);
+	rtc->month = BCDtoDECIMAL(rtc->month);
+	rtc->year = BCDtoDECIMAL(rtc->year);
+}
+void blink()
+{
+	uint8_t j = 0;
+	while(j < 75 && bit_is_set(PINA,1) && bit_is_set(PINA,2) && bit_is_set(PINA,3)) {
+		j++;
+		_delay_ms(5);
+	}
+}
+uint8_t Edit_time(uint8_t row, uint8_t column_1, uint8_t column_2, int8_t parameter)
+{
+	while(1)
+	{
+		/*--- up ---*/
+		while(bit_is_clear(PINA,2))
+		{
+			parameter++;
+			if(i == 0 && parameter > 23)   // if hours > 23 ==> hours = 0
+			parameter = 0;
+			if(i == 1 && parameter > 59)   // if minutes > 59 ==> minutes = 0
+			parameter = 0;
+			if(i == 2 && parameter > 31)   // if date > 31 ==> date = 1
+			parameter = 1;
+			if(i == 3 && parameter > 12)   // if month > 12 ==> month = 1
+			parameter = 1;
+			if(i == 4 && parameter > 99)   // if year > 99 ==> year = 0
+			parameter = 0;
+			
+			Display(row,column_1,parameter/10);
+			Display(row,column_2,parameter%10);
+			_delay_ms(500);
+			
+		}
+		/*--- down ---*/
+		while(bit_is_clear(PINA,3))
+		{
+			parameter--;
+			if(i == 0 && parameter < 0)   // if hours > 23 ==> hours = 0
+			parameter = 23;
+			if(i == 1 && parameter < 0)   // if minutes > 59 ==> minutes = 0
+			parameter = 59;
+			if(i == 2 && parameter < 1)   // if date > 31 ==> date = 1
+			parameter = 31;
+			if(i == 3 && parameter < 1)   // if month > 12 ==> month = 1
+			parameter = 12;
+			if(i == 4 && parameter < 1)   // if year > 99 ==> year = 0
+			parameter = 99;
+			
+			Display(row,column_1,parameter/10);
+			Display(row,column_2,parameter%10);
+			_delay_ms(500);
+			
+			_delay_ms(200);
+		}
+		
+		Display(row,column_1,' ');
+		Display(row,column_2,' ');
+		blink();
+		
+		Display(row,column_1,parameter/10);
+		Display(row,column_2,parameter%10);
+		blink();
+		
+		if(bit_is_clear(PINA,1))
+		{
+			while(bit_is_clear(PINA,1));
+			i++;
+			return parameter;
+		}
+	}
+}
 void Request()				/* Microcontroller send start pulse/request */
 {
 	sbi(DHT11_DDR,DHT11_PIN);
@@ -66,39 +272,42 @@ void Display(unsigned char line, unsigned char col, unsigned char number)
 	switch(number)
 	{
 		case 0:
-		  i = 0;
-		  break;
+		i = 0;
+		break;
 		case 1:
-		  i = 14;
-		  break;
+		i = 14;
+		break;
 		case 2:
-		  i = 28;
-		  break;
+		i = 28;
+		break;
 		case 3:
-		  i = 42;
-	      break;
+		i = 42;
+		break;
 		case 4:
-		  i = 56;
-		  break;
+		i = 56;
+		break;
 		case 5:
-		  i = 70;
-		  break;
+		i = 70;
+		break;
 		case 6:
-		  i = 84;
-		  break;
+		i = 84;
+		break;
 		case 7:
-		  i = 98;
-		  break;
+		i = 98;
+		break;
 		case 8:
-		  i = 112;
-		  break;
+		i = 112;
+		break;
 		case 9:
-		  i = 126;
-		  break;
+		i = 126;
+		break;
 		case ':':
-		  i = 140;
-		  break;      
-		default: break;    
+		i = 140;
+		break;
+		case ' ':
+		i = 154;
+		break;
+		default: break;
 	}
 	for(uint8_t cot = col;cot<col+7;cot++)
 	{
@@ -114,6 +323,24 @@ void Display(unsigned char line, unsigned char col, unsigned char number)
 		i++;
 	}
 }
+void Display_Time(rtc_t *rtc)
+{
+	Display(1,11,rtc->hour/10);
+	Display(1,17,rtc->hour%10);
+	Display(1,23,':'); //
+	Display(1,29,rtc->min/10);
+	Display(1,35,rtc->min%10);
+	Display(1,41,':'); //
+	Display(1,47,rtc->sec/10);
+	Display(1,53,rtc->sec%10);
+}
+int DECIMALtoBCD(int DEC)
+{
+	int L, H;
+	L=DEC%10; //make digit low
+	H=DEC/10<<4; //make digit high
+	return (H+L);
+}
 int BCDtoDECIMAL(int BCD)
 {
 	int L, H;
@@ -121,69 +348,3 @@ int BCDtoDECIMAL(int BCD)
 	H=(BCD>>4) * 10;//tens
 	return (H+L);
 }
-int main(void)
-{
-	uint8_t time[7];
-	uint8_t I_RH,D_RH,I_Temp,D_Temp,CheckSum;
-    GLCD_Init();
-	I2C_Init();
-    GLCD_Clr();
-	GLCD_PutBMP(anime_v10);
-	_delay_ms(2000);
-	GLCD_PutBMP(khung);
-    while(1)
-	{
-		Request();		/* send start pulse */
-		Response();		/* receive response */
-		I_RH=Receive_data();	/* store first eight bit in I_RH */
-		D_RH=Receive_data();	/* store next eight bit in D_RH */
-		I_Temp=Receive_data();	/* store next eight bit in I_Temp */
-		D_Temp=Receive_data();	/* store next eight bit in D_Temp */
-		CheckSum=Receive_data();/* store next eight bit in CheckSum */
-		//
-		
-		if ((I_RH + D_RH + I_Temp + D_Temp) != CheckSum);
-		else
-		{
-			GLCD_PutChar78(2,92,I_Temp/10+48);
-			GLCD_PutChar78(2,99,I_Temp%10+48);
-			GLCD_Print78(2,106,"oC");
-			//
-			GLCD_PutChar78(6,94,I_RH/10+48);
-			GLCD_PutChar78(6,101,I_RH%10+48);
-			GLCD_PutChar78(6,110,'%');
-		}
-		//
-		I2C_Start_Wait(0xD0);
-		I2C_Write(0x00);
-		I2C_Repeated_Start(0xD1);
-		time[0] = I2C_Read_Ack();
-		time[1] = I2C_Read_Ack();
-		time[2] = I2C_Read_Ack();
-		time[3] = I2C_Read_Ack();
-		time[4] = I2C_Read_Ack();
-		time[5] = I2C_Read_Ack();
-		time[6] = I2C_Read_Nack();
-		I2C_Stop();
-		//
-		time[0] = BCDtoDECIMAL(time[0]);
-		time[1] = BCDtoDECIMAL(time[1]);
-		time[2] = BCDtoDECIMAL(time[2]);
-		time[4] = BCDtoDECIMAL(time[4]);
-		time[5] = BCDtoDECIMAL(time[5]);
-		time[6] = BCDtoDECIMAL(time[6]);
-		//
-		Display(1,11,time[2]/10);
-		Display(1,17,time[2]%10);
-		Display(1,23,':'); //
-		Display(1,29,time[1]/10);
-		Display(1,35,time[1]%10);
-		Display(1,41,':'); //
-		Display(1,47,time[0]/10);
-		Display(1,53,time[0]%10);
-		_delay_ms(1000);
-    }
-    return 0;
-}
-
-

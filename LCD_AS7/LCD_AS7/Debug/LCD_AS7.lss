@@ -5,27 +5,27 @@ Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .text         00000b80  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000044  00800060  00000b80  00000bf4  2**0
+  1 .data         00000048  00800060  00000b80  00000bf4  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .comment      0000005c  00000000  00000000  00000c38  2**0
+  2 .comment      0000005c  00000000  00000000  00000c3c  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000c94  2**2
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000c98  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 000000b8  00000000  00000000  00000cd0  2**0
+  4 .debug_aranges 000000b8  00000000  00000000  00000cd4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   0000168f  00000000  00000000  00000d88  2**0
+  5 .debug_info   00001693  00000000  00000000  00000d8c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 0000073a  00000000  00000000  00002417  2**0
+  6 .debug_abbrev 0000073c  00000000  00000000  0000241f  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   00000a1e  00000000  00000000  00002b51  2**0
+  7 .debug_line   00000a23  00000000  00000000  00002b5b  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  000001c8  00000000  00000000  00003570  2**2
+  8 .debug_frame  000001c8  00000000  00000000  00003580  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    00000454  00000000  00000000  00003738  2**0
+  9 .debug_str    00000465  00000000  00000000  00003748  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    00000b9a  00000000  00000000  00003b8c  2**0
+ 10 .debug_loc    00000b9a  00000000  00000000  00003bad  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 000000a8  00000000  00000000  00004726  2**0
+ 11 .debug_ranges 000000a8  00000000  00000000  00004747  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -70,7 +70,7 @@ Disassembly of section .text:
   6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
   6c:	05 90       	lpm	r0, Z+
   6e:	0d 92       	st	X+, r0
-  70:	a4 3a       	cpi	r26, 0xA4	; 164
+  70:	a8 3a       	cpi	r26, 0xA8	; 168
   72:	b1 07       	cpc	r27, r17
   74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
   76:	0e 94 aa 02 	call	0x554	; 0x554 <main>
@@ -641,9 +641,9 @@ void Lcd4_Shift_Left()
  502:	0e 94 c1 01 	call	0x382	; 0x382 <Lcd4_Cmd>
  506:	80 e0       	ldi	r24, 0x00	; 0
  508:	0e 94 c1 01 	call	0x382	; 0x382 <Lcd4_Cmd>
- 50c:	c3 e6       	ldi	r28, 0x63	; 99
+ 50c:	c7 e6       	ldi	r28, 0x67	; 103
  50e:	d0 e0       	ldi	r29, 0x00	; 0
- 510:	03 ea       	ldi	r16, 0xA3	; 163
+ 510:	07 ea       	ldi	r16, 0xA7	; 167
  512:	10 e0       	ldi	r17, 0x00	; 0
  514:	89 91       	ld	r24, Y+
  516:	0e 94 03 02 	call	0x406	; 0x406 <Lcd4_Write_Char>
@@ -693,7 +693,7 @@ int main(void)
  562:	de bf       	out	0x3e, r29	; 62
  564:	0f be       	out	0x3f, r0	; 63
  566:	cd bf       	out	0x3d, r28	; 61
-	char i;
+	char i = 4;
     DDRB = 0xFF;
  568:	8f ef       	ldi	r24, 0xFF	; 255
  56a:	87 bb       	out	0x17, r24	; 23
@@ -707,28 +707,30 @@ int main(void)
  574:	90 e0       	ldi	r25, 0x00	; 0
  576:	9f 93       	push	r25
  578:	8f 93       	push	r24
- 57a:	8e 01       	movw	r16, r28
- 57c:	0f 5f       	subi	r16, 0xFF	; 255
- 57e:	1f 4f       	sbci	r17, 0xFF	; 255
- 580:	1f 93       	push	r17
- 582:	0f 93       	push	r16
- 584:	0e 94 d4 02 	call	0x5a8	; 0x5a8 <sprintf>
+ 57a:	ce 01       	movw	r24, r28
+ 57c:	01 96       	adiw	r24, 0x01	; 1
+ 57e:	9f 93       	push	r25
+ 580:	8f 93       	push	r24
+ 582:	0e 94 d4 02 	call	0x5a8	; 0x5a8 <sprintf>
     Lcd4_Init();
- 588:	0e 94 46 02 	call	0x48c	; 0x48c <Lcd4_Init>
-	Lcd4_Set_Cursor(1,0);
- 58c:	60 e0       	ldi	r22, 0x00	; 0
- 58e:	81 e0       	ldi	r24, 0x01	; 1
- 590:	0e 94 e6 01 	call	0x3cc	; 0x3cc <Lcd4_Set_Cursor>
-	Lcd4_Write_String(buffer);
- 594:	c8 01       	movw	r24, r16
- 596:	0e 94 9b 02 	call	0x536	; 0x536 <Lcd4_Write_String>
- 59a:	0f 90       	pop	r0
- 59c:	0f 90       	pop	r0
- 59e:	0f 90       	pop	r0
- 5a0:	0f 90       	pop	r0
- 5a2:	0f 90       	pop	r0
- 5a4:	0f 90       	pop	r0
- 5a6:	ff cf       	rjmp	.-2      	; 0x5a6 <main+0x52>
+ 586:	0e 94 46 02 	call	0x48c	; 0x48c <Lcd4_Init>
+ 58a:	0f 90       	pop	r0
+ 58c:	0f 90       	pop	r0
+ 58e:	0f 90       	pop	r0
+ 590:	0f 90       	pop	r0
+ 592:	0f 90       	pop	r0
+ 594:	0f 90       	pop	r0
+    while (1) 
+    {
+		Lcd4_Set_Cursor(1,0);
+ 596:	60 e0       	ldi	r22, 0x00	; 0
+ 598:	81 e0       	ldi	r24, 0x01	; 1
+ 59a:	0e 94 e6 01 	call	0x3cc	; 0x3cc <Lcd4_Set_Cursor>
+		(i==5) ? Lcd4_Write_String("123") : Lcd4_Write_String("456");
+ 59e:	83 e6       	ldi	r24, 0x63	; 99
+ 5a0:	90 e0       	ldi	r25, 0x00	; 0
+ 5a2:	0e 94 9b 02 	call	0x536	; 0x536 <Lcd4_Write_String>
+ 5a6:	f7 cf       	rjmp	.-18     	; 0x596 <main+0x42>
 
 000005a8 <sprintf>:
  5a8:	ae e0       	ldi	r26, 0x0E	; 14
