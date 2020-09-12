@@ -14,6 +14,8 @@
 
 #include "main.h"
 #include "lcd.h"
+#include "UART.h"
+#include <stdio.h>
 
 void ADC_Init();
 unsigned int Read_ADC(unsigned char channel);
@@ -24,6 +26,7 @@ int main(void)
 {
   //bien
   uint32_t a, duty, c, t;
+  char buffer[5];
   // port
   sbi(DDRB, PB3);
   DDRC = 0xFF;
@@ -33,6 +36,7 @@ int main(void)
   Lcd4_Init();
   PWM_Init();
   Capture_Init();
+  UART_init(9600);
   sei();
   // begin
   Lcd4_Write_String("Duty: ");
@@ -46,6 +50,10 @@ int main(void)
 	c = ICR1;
 	t = 60000000/(c*256*0.0625f*24);
 	if(t<10) t = 0;
+	sprintf(buffer,"%d",(int)t);
+	UART_SendString(buffer);
+	_delay_ms(10);
+	UART_TxChar('W');
 	//
 	PWM_Duty(duty);
 	Lcd4_Set_Cursor(1, 6);
@@ -59,6 +67,7 @@ int main(void)
 	Lcd4_Write_Char((t%1000)/100+48);
 	Lcd4_Write_Char((t%100)/10+48);
 	Lcd4_Write_Char(t%10+48);
+	_delay_ms(100);
   }
 }
 void ADC_Init()

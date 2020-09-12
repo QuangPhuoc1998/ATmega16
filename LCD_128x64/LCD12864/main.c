@@ -80,7 +80,16 @@ int main(void)
     GLCD_Init();
 	I2C_Init();
     GLCD_Clr();
-	GLCD_PutBMP(khung);
+	
+	while(1)
+	{
+		GLCD_PutBMP(anime);
+		_delay_ms(500);
+		GLCD_PutBMP(anime_1);
+		_delay_ms(500);
+		GLCD_PutBMP(panda);
+		_delay_ms(500);
+	}
     while(1)
 	{
 		/*------ Set time ------*/
@@ -118,8 +127,8 @@ int main(void)
 			GLCD_PutChar78(6,110,'%');
 		}
 		/*------DS1307------*/
-		DS1307_Get_time(&rtc);
-		Display_Time(&rtc);
+		//DS1307_Get_time(&rtc);
+		//Display_Time(&rtc);
 		_delay_ms(1000);
     }
     return 0;
