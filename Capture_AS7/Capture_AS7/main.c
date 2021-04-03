@@ -18,6 +18,7 @@
 void Capture_Init();
 int main(void)
 {
+	char string[5] = "abcdef";
   // bien
   uint32_t c = 0;
   uint32_t t = 0;
@@ -49,7 +50,6 @@ int main(void)
 	Lcd4_Write_Char((t%1000)/100+48);
 	Lcd4_Write_Char((t%100)/10+48);
 	Lcd4_Write_Char(t%10+48);
-
 	_delay_ms(10);
   }
 }

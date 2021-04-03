@@ -15,6 +15,7 @@ void Spi_Init_Slave()
 	DDRB &= ~((1<<PB4)|(1<<PB5)|(1<<PB7));   // SCK, MOSI and SS as inputs
 	DDRB |= (1<<PB6);                    // MISO as output
 
+	SPCR |= (1<<SPIE);                 // enable SPI interrupt
 	SPCR &= ~(1<<MSTR);                // Set as slave
 	SPCR |= (1<<SPR0)|(1<<SPR1);       // divide clock by 128
 	SPCR |= (1<<SPE);

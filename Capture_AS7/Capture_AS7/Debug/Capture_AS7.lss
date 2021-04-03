@@ -13,19 +13,19 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   4 .debug_aranges 000000c8  00000000  00000000  00000b90  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   000016df  00000000  00000000  00000c58  2**0
+  5 .debug_info   00001701  00000000  00000000  00000c58  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 00000711  00000000  00000000  00002337  2**0
+  6 .debug_abbrev 00000723  00000000  00000000  00002359  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   00000ae6  00000000  00000000  00002a48  2**0
+  7 .debug_line   00000aeb  00000000  00000000  00002a7c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  000001e0  00000000  00000000  00003530  2**2
+  8 .debug_frame  000001e0  00000000  00000000  00003568  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    0000044a  00000000  00000000  00003710  2**0
+  9 .debug_str    0000046b  00000000  00000000  00003748  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    00000ba9  00000000  00000000  00003b5a  2**0
+ 10 .debug_loc    00000ba9  00000000  00000000  00003bb3  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 000000b8  00000000  00000000  00004703  2**0
+ 11 .debug_ranges 000000b8  00000000  00000000  0000475c  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -689,6 +689,7 @@ int main(void)
  536:	00 d0       	rcall	.+0      	; 0x538 <main+0x8>
  538:	cd b7       	in	r28, 0x3d	; 61
  53a:	de b7       	in	r29, 0x3e	; 62
+	char string[5] = "abcdef";
   // bien
   uint32_t c = 0;
   uint32_t t = 0;

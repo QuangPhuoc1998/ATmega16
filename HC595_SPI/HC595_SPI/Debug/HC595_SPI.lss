@@ -1,0 +1,489 @@
+
+HC595_SPI.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000256  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000020  00800060  00000256  000002ea  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000001  00800080  00800080  0000030a  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  0000030a  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000033c  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000120  00000000  00000000  00000378  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00000d79  00000000  00000000  00000498  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000a04  00000000  00000000  00001211  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000799  00000000  00000000  00001c15  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  00000254  00000000  00000000  000023b0  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    0000050f  00000000  00000000  00002604  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000541  00000000  00000000  00002b13  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 000000d0  00000000  00000000  00003054  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	0c 94 2a 00 	jmp	0x54	; 0x54 <__ctors_end>
+   4:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   8:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+   c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  10:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  14:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  18:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  20:	0c 94 f5 00 	jmp	0x1ea	; 0x1ea <__vector_8>
+  24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  28:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  2c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  3c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  40:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  44:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  48:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  4c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+  50:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
+
+00000054 <__ctors_end>:
+  54:	11 24       	eor	r1, r1
+  56:	1f be       	out	0x3f, r1	; 63
+  58:	cf e5       	ldi	r28, 0x5F	; 95
+  5a:	d4 e0       	ldi	r29, 0x04	; 4
+  5c:	de bf       	out	0x3e, r29	; 62
+  5e:	cd bf       	out	0x3d, r28	; 61
+
+00000060 <__do_copy_data>:
+  60:	10 e0       	ldi	r17, 0x00	; 0
+  62:	a0 e6       	ldi	r26, 0x60	; 96
+  64:	b0 e0       	ldi	r27, 0x00	; 0
+  66:	e6 e5       	ldi	r30, 0x56	; 86
+  68:	f2 e0       	ldi	r31, 0x02	; 2
+  6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
+  6c:	05 90       	lpm	r0, Z+
+  6e:	0d 92       	st	X+, r0
+  70:	a0 38       	cpi	r26, 0x80	; 128
+  72:	b1 07       	cpc	r27, r17
+  74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
+
+00000076 <__do_clear_bss>:
+  76:	20 e0       	ldi	r18, 0x00	; 0
+  78:	a0 e8       	ldi	r26, 0x80	; 128
+  7a:	b0 e0       	ldi	r27, 0x00	; 0
+  7c:	01 c0       	rjmp	.+2      	; 0x80 <.do_clear_bss_start>
+
+0000007e <.do_clear_bss_loop>:
+  7e:	1d 92       	st	X+, r1
+
+00000080 <.do_clear_bss_start>:
+  80:	a1 38       	cpi	r26, 0x81	; 129
+  82:	b2 07       	cpc	r27, r18
+  84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
+  86:	0e 94 d6 00 	call	0x1ac	; 0x1ac <main>
+  8a:	0c 94 29 01 	jmp	0x252	; 0x252 <_exit>
+
+0000008e <__bad_interrupt>:
+  8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
+
+00000092 <Spi_Init_Master>:
+void Spi_Read_Text(char *Output, unsigned int length)
+{
+	int i;
+	for(i=0;i<length;i++)
+	Output[i] = Spi_Read();
+}
+  92:	87 b3       	in	r24, 0x17	; 23
+  94:	80 6b       	ori	r24, 0xB0	; 176
+  96:	87 bb       	out	0x17, r24	; 23
+  98:	be 98       	cbi	0x17, 6	; 23
+  9a:	6c 9a       	sbi	0x0d, 4	; 13
+  9c:	8d b1       	in	r24, 0x0d	; 13
+  9e:	83 60       	ori	r24, 0x03	; 3
+  a0:	8d b9       	out	0x0d, r24	; 13
+  a2:	6e 9a       	sbi	0x0d, 6	; 13
+  a4:	08 95       	ret
+
+000000a6 <bsp_spi_init>:
+  a6:	0e 94 49 00 	call	0x92	; 0x92 <Spi_Init_Master>
+  aa:	c4 9a       	sbi	0x18, 4	; 24
+  ac:	08 95       	ret
+
+000000ae <Spi_Write>:
+void Spi_Write(char data)
+{
+	SPDR = data;
+  ae:	8f b9       	out	0x0f, r24	; 15
+	while(!(SPSR & (1<<SPIF)));
+  b0:	77 9b       	sbis	0x0e, 7	; 14
+  b2:	fe cf       	rjmp	.-4      	; 0xb0 <Spi_Write+0x2>
+}
+  b4:	08 95       	ret
+
+000000b6 <SPI_Write_Text>:
+void SPI_Write_Text(uint8_t *text, uint8_t len)
+{
+  b6:	0f 93       	push	r16
+  b8:	1f 93       	push	r17
+  ba:	cf 93       	push	r28
+  bc:	df 93       	push	r29
+	int i;
+	for(i=0;i<len;i++)
+  be:	66 23       	and	r22, r22
+  c0:	51 f0       	breq	.+20     	; 0xd6 <SPI_Write_Text+0x20>
+  c2:	8c 01       	movw	r16, r24
+  c4:	ec 01       	movw	r28, r24
+  c6:	06 0f       	add	r16, r22
+  c8:	11 1d       	adc	r17, r1
+	Spi_Write(text[i]);
+  ca:	89 91       	ld	r24, Y+
+  cc:	0e 94 57 00 	call	0xae	; 0xae <Spi_Write>
+	while(!(SPSR & (1<<SPIF)));
+}
+void SPI_Write_Text(uint8_t *text, uint8_t len)
+{
+	int i;
+	for(i=0;i<len;i++)
+  d0:	c0 17       	cp	r28, r16
+  d2:	d1 07       	cpc	r29, r17
+  d4:	d1 f7       	brne	.-12     	; 0xca <SPI_Write_Text+0x14>
+	Spi_Write(text[i]);
+  d6:	df 91       	pop	r29
+  d8:	cf 91       	pop	r28
+  da:	1f 91       	pop	r17
+  dc:	0f 91       	pop	r16
+  de:	08 95       	ret
+
+000000e0 <bsp_spi_write>:
+	Spi_Init_Master();
+	sbi(PORTB, 4);
+}
+void bsp_spi_write(uint8_t *p_src, uint8_t len)
+{
+	cbi(PORTB, 4);
+  e0:	c4 98       	cbi	0x18, 4	; 24
+	SPI_Write_Text(p_src, len);
+  e2:	0e 94 5b 00 	call	0xb6	; 0xb6 <SPI_Write_Text>
+	sbi(PORTB, 4);
+  e6:	c4 9a       	sbi	0x18, 4	; 24
+  e8:	08 95       	ret
+
+000000ea <hc595_write>:
+{
+	
+}
+void hc595_write(uint8_t* data, uint8_t len)
+{
+	bsp_spi_write(data, len);
+  ea:	0e 94 70 00 	call	0xe0	; 0xe0 <bsp_spi_write>
+  ee:	08 95       	ret
+
+000000f0 <per_led_left_shift>:
+		pixel_bits[i] = 0x00;
+	}
+}
+
+void per_led_left_shift(void)
+{
+  f0:	cf 93       	push	r28
+  f2:	df 93       	push	r29
+  f4:	00 d0       	rcall	.+0      	; 0xf6 <per_led_left_shift+0x6>
+  f6:	cd b7       	in	r28, 0x3d	; 61
+  f8:	de b7       	in	r29, 0x3e	; 62
+  fa:	e0 e6       	ldi	r30, 0x60	; 96
+  fc:	f0 e0       	ldi	r31, 0x00	; 0
+  fe:	40 e7       	ldi	r20, 0x70	; 112
+ 100:	50 e0       	ldi	r21, 0x00	; 0
+	for(int i=0;i<8;i++)
+	{
+		pixel_bits[i] = (pixel_bits[i] >> 1);
+ 102:	80 81       	ld	r24, Z
+ 104:	91 81       	ldd	r25, Z+1	; 0x01
+ 106:	96 95       	lsr	r25
+ 108:	87 95       	ror	r24
+ 10a:	91 83       	std	Z+1, r25	; 0x01
+ 10c:	80 83       	st	Z, r24
+ 10e:	9a 83       	std	Y+2, r25	; 0x02
+ 110:	89 83       	std	Y+1, r24	; 0x01
+}
+
+
+bool per_led_read_bit(uint16_t data, uint8_t bit)
+{
+	if(bit_is_clear(data, bit)) return 0; else return 1;
+ 112:	29 81       	ldd	r18, Y+1	; 0x01
+void per_led_left_shift(void)
+{
+	for(int i=0;i<8;i++)
+	{
+		pixel_bits[i] = (pixel_bits[i] >> 1);
+		if(per_led_read_bit(pixel_bits[i], 0) != false)
+ 114:	20 ff       	sbrs	r18, 0
+ 116:	03 c0       	rjmp	.+6      	; 0x11e <per_led_left_shift+0x2e>
+		{
+			pixel_bits[i] |= 0x8000;
+ 118:	90 68       	ori	r25, 0x80	; 128
+ 11a:	91 83       	std	Z+1, r25	; 0x01
+ 11c:	80 83       	st	Z, r24
+ 11e:	32 96       	adiw	r30, 0x02	; 2
+	}
+}
+
+void per_led_left_shift(void)
+{
+	for(int i=0;i<8;i++)
+ 120:	e4 17       	cp	r30, r20
+ 122:	f5 07       	cpc	r31, r21
+ 124:	71 f7       	brne	.-36     	; 0x102 <per_led_left_shift+0x12>
+		if(per_led_read_bit(pixel_bits[i], 0) != false)
+		{
+			pixel_bits[i] |= 0x8000;
+		}
+	}
+}
+ 126:	0f 90       	pop	r0
+ 128:	0f 90       	pop	r0
+ 12a:	df 91       	pop	r29
+ 12c:	cf 91       	pop	r28
+ 12e:	08 95       	ret
+
+00000130 <per_led_copy_data>:
+
+void per_led_copy_data(uint16_t *data)
+{
+ 130:	dc 01       	movw	r26, r24
+ 132:	e0 e6       	ldi	r30, 0x60	; 96
+ 134:	f0 e0       	ldi	r31, 0x00	; 0
+ 136:	20 e7       	ldi	r18, 0x70	; 112
+ 138:	30 e0       	ldi	r19, 0x00	; 0
+	for(int i=0;i<8;i++)
+	{
+		pixel_bits[i] = data[i];
+ 13a:	8d 91       	ld	r24, X+
+ 13c:	9d 91       	ld	r25, X+
+ 13e:	81 93       	st	Z+, r24
+ 140:	91 93       	st	Z+, r25
+	}
+}
+
+void per_led_copy_data(uint16_t *data)
+{
+	for(int i=0;i<8;i++)
+ 142:	e2 17       	cp	r30, r18
+ 144:	f3 07       	cpc	r31, r19
+ 146:	c9 f7       	brne	.-14     	; 0x13a <per_led_copy_data+0xa>
+	{
+		pixel_bits[i] = data[i];
+	}
+}
+ 148:	08 95       	ret
+
+0000014a <per_led_seg_task>:
+
+void per_led_seg_task(void)
+{
+ 14a:	cf 93       	push	r28
+ 14c:	df 93       	push	r29
+ 14e:	00 d0       	rcall	.+0      	; 0x150 <per_led_seg_task+0x6>
+ 150:	cd b7       	in	r28, 0x3d	; 61
+ 152:	de b7       	in	r29, 0x3e	; 62
+	static uint8_t row = 0;
+	
+	uint8_t led_data[2] = {0, 0};
+
+	led_data[0] = ~(0x01 << (7 - row));   // send row first
+ 154:	80 91 80 00 	lds	r24, 0x0080	; 0x800080 <__data_end>
+ 158:	90 e0       	ldi	r25, 0x00	; 0
+ 15a:	47 e0       	ldi	r20, 0x07	; 7
+ 15c:	50 e0       	ldi	r21, 0x00	; 0
+ 15e:	48 1b       	sub	r20, r24
+ 160:	59 0b       	sbc	r21, r25
+ 162:	21 e0       	ldi	r18, 0x01	; 1
+ 164:	30 e0       	ldi	r19, 0x00	; 0
+ 166:	02 c0       	rjmp	.+4      	; 0x16c <per_led_seg_task+0x22>
+ 168:	22 0f       	add	r18, r18
+ 16a:	33 1f       	adc	r19, r19
+ 16c:	4a 95       	dec	r20
+ 16e:	e2 f7       	brpl	.-8      	; 0x168 <per_led_seg_task+0x1e>
+ 170:	20 95       	com	r18
+ 172:	29 83       	std	Y+1, r18	; 0x01
+	led_data[1] = ~(pixel_bits[row]);     // then send column
+ 174:	88 0f       	add	r24, r24
+ 176:	99 1f       	adc	r25, r25
+ 178:	fc 01       	movw	r30, r24
+ 17a:	e0 5a       	subi	r30, 0xA0	; 160
+ 17c:	ff 4f       	sbci	r31, 0xFF	; 255
+ 17e:	80 81       	ld	r24, Z
+ 180:	80 95       	com	r24
+ 182:	8a 83       	std	Y+2, r24	; 0x02
+	
+	hc595_write(led_data, 2);
+ 184:	62 e0       	ldi	r22, 0x02	; 2
+ 186:	ce 01       	movw	r24, r28
+ 188:	01 96       	adiw	r24, 0x01	; 1
+ 18a:	0e 94 75 00 	call	0xea	; 0xea <hc595_write>
+
+	if (++row >= 8)
+ 18e:	80 91 80 00 	lds	r24, 0x0080	; 0x800080 <__data_end>
+ 192:	8f 5f       	subi	r24, 0xFF	; 255
+ 194:	88 30       	cpi	r24, 0x08	; 8
+ 196:	18 f4       	brcc	.+6      	; 0x19e <per_led_seg_task+0x54>
+ 198:	80 93 80 00 	sts	0x0080, r24	; 0x800080 <__data_end>
+ 19c:	02 c0       	rjmp	.+4      	; 0x1a2 <per_led_seg_task+0x58>
+	{
+		row = 0;
+ 19e:	10 92 80 00 	sts	0x0080, r1	; 0x800080 <__data_end>
+	}
+}
+ 1a2:	0f 90       	pop	r0
+ 1a4:	0f 90       	pop	r0
+ 1a6:	df 91       	pop	r29
+ 1a8:	cf 91       	pop	r28
+ 1aa:	08 95       	ret
+
+000001ac <main>:
+
+void spi_send_data(uint8_t data);
+int main(void)
+{
+	uint8_t cout = 0;
+    timer1_init();
+ 1ac:	0e 94 1d 01 	call	0x23a	; 0x23a <timer1_init>
+	bsp_spi_init();	
+ 1b0:	0e 94 53 00 	call	0xa6	; 0xa6 <bsp_spi_init>
+	per_led_copy_data(my_led);
+ 1b4:	80 e7       	ldi	r24, 0x70	; 112
+ 1b6:	90 e0       	ldi	r25, 0x00	; 0
+ 1b8:	0e 94 98 00 	call	0x130	; 0x130 <per_led_copy_data>
+	sei();
+ 1bc:	78 94       	sei
+
+
+void spi_send_data(uint8_t data);
+int main(void)
+{
+	uint8_t cout = 0;
+ 1be:	c0 e0       	ldi	r28, 0x00	; 0
+	#else
+		//round up by default
+		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
+	#endif
+
+	__builtin_avr_delay_cycles(__ticks_dc);
+ 1c0:	2f ef       	ldi	r18, 0xFF	; 255
+ 1c2:	83 ec       	ldi	r24, 0xC3	; 195
+ 1c4:	99 e0       	ldi	r25, 0x09	; 9
+ 1c6:	21 50       	subi	r18, 0x01	; 1
+ 1c8:	80 40       	sbci	r24, 0x00	; 0
+ 1ca:	90 40       	sbci	r25, 0x00	; 0
+ 1cc:	e1 f7       	brne	.-8      	; 0x1c6 <main+0x1a>
+ 1ce:	00 c0       	rjmp	.+0      	; 0x1d0 <main+0x24>
+ 1d0:	00 00       	nop
+	per_led_copy_data(my_led);
+	sei();
+    while (1) 
+    {
+		_delay_ms(200);
+		cout++;
+ 1d2:	cf 5f       	subi	r28, 0xFF	; 255
+		if(cout == 16) 
+ 1d4:	c0 31       	cpi	r28, 0x10	; 16
+ 1d6:	31 f4       	brne	.+12     	; 0x1e4 <main+0x38>
+		{
+			per_led_copy_data(my_led);
+ 1d8:	80 e7       	ldi	r24, 0x70	; 112
+ 1da:	90 e0       	ldi	r25, 0x00	; 0
+ 1dc:	0e 94 98 00 	call	0x130	; 0x130 <per_led_copy_data>
+			cout = 0;
+ 1e0:	c0 e0       	ldi	r28, 0x00	; 0
+ 1e2:	ee cf       	rjmp	.-36     	; 0x1c0 <main+0x14>
+		} else per_led_left_shift();
+ 1e4:	0e 94 78 00 	call	0xf0	; 0xf0 <per_led_left_shift>
+ 1e8:	eb cf       	rjmp	.-42     	; 0x1c0 <main+0x14>
+
+000001ea <__vector_8>:
+		
+    }
+}
+ISR(TIMER1_OVF_vect)
+{
+ 1ea:	1f 92       	push	r1
+ 1ec:	0f 92       	push	r0
+ 1ee:	0f b6       	in	r0, 0x3f	; 63
+ 1f0:	0f 92       	push	r0
+ 1f2:	11 24       	eor	r1, r1
+ 1f4:	2f 93       	push	r18
+ 1f6:	3f 93       	push	r19
+ 1f8:	4f 93       	push	r20
+ 1fa:	5f 93       	push	r21
+ 1fc:	6f 93       	push	r22
+ 1fe:	7f 93       	push	r23
+ 200:	8f 93       	push	r24
+ 202:	9f 93       	push	r25
+ 204:	af 93       	push	r26
+ 206:	bf 93       	push	r27
+ 208:	ef 93       	push	r30
+ 20a:	ff 93       	push	r31
+	TCNT1 = 49536;
+ 20c:	80 e8       	ldi	r24, 0x80	; 128
+ 20e:	91 ec       	ldi	r25, 0xC1	; 193
+ 210:	9d bd       	out	0x2d, r25	; 45
+ 212:	8c bd       	out	0x2c, r24	; 44
+	//timer_handler(0);
+	per_led_seg_task();
+ 214:	0e 94 a5 00 	call	0x14a	; 0x14a <per_led_seg_task>
+}
+ 218:	ff 91       	pop	r31
+ 21a:	ef 91       	pop	r30
+ 21c:	bf 91       	pop	r27
+ 21e:	af 91       	pop	r26
+ 220:	9f 91       	pop	r25
+ 222:	8f 91       	pop	r24
+ 224:	7f 91       	pop	r23
+ 226:	6f 91       	pop	r22
+ 228:	5f 91       	pop	r21
+ 22a:	4f 91       	pop	r20
+ 22c:	3f 91       	pop	r19
+ 22e:	2f 91       	pop	r18
+ 230:	0f 90       	pop	r0
+ 232:	0f be       	out	0x3f, r0	; 63
+ 234:	0f 90       	pop	r0
+ 236:	1f 90       	pop	r1
+ 238:	18 95       	reti
+
+0000023a <timer1_init>:
+#include "timer_1.h"
+
+void timer1_init(void)
+{
+	TCNT1 = 49536;
+ 23a:	80 e8       	ldi	r24, 0x80	; 128
+ 23c:	91 ec       	ldi	r25, 0xC1	; 193
+ 23e:	9d bd       	out	0x2d, r25	; 45
+ 240:	8c bd       	out	0x2c, r24	; 44
+	TCCR1A = 0x00;
+ 242:	1f bc       	out	0x2f, r1	; 47
+	TCCR1B |= (1<<CS10);
+ 244:	8e b5       	in	r24, 0x2e	; 46
+ 246:	81 60       	ori	r24, 0x01	; 1
+ 248:	8e bd       	out	0x2e, r24	; 46
+	TIMSK |= (1<<TOIE1);
+ 24a:	89 b7       	in	r24, 0x39	; 57
+ 24c:	84 60       	ori	r24, 0x04	; 4
+ 24e:	89 bf       	out	0x39, r24	; 57
+ 250:	08 95       	ret
+
+00000252 <_exit>:
+ 252:	f8 94       	cli
+
+00000254 <__stop_program>:
+ 254:	ff cf       	rjmp	.-2      	; 0x254 <__stop_program>
